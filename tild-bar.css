@@ -1,0 +1,147 @@
+#tild-bar {
+    display: grid;
+    grid-template-columns: 1fr 50px 1fr;
+    height: 50px;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px #666 solid;
+}
+
+#tild-bar div {
+    display: inline-block;
+}
+
+.side-tild-bar {
+    padding-left: 0px;
+}
+
+.side-tild-bar li {
+    cursor: pointer;
+    margin: 3%;
+    display: inline-flex;
+    list-style: none;
+}
+
+#binary-input {
+    font-weight: bold;
+    color: rgb(67, 150, 233);
+}
+
+
+/*=================================*/
+/* left side of the side tild bar */
+/*=================================*/
+
+
+#binary-input-underline, #decimal-input-underline, #hexadecimal-input-underline, #octal-input-underline {
+    content: "";
+    position: absolute;
+    height: 4px;
+    background: rgb(67, 150, 233);
+    top: 48px;
+    display: block;
+    width: 0px;
+}
+
+
+#binary-input-underline {
+    width: 50px;
+}
+
+
+/*===============*/
+/* switch button */
+/*===============*/
+
+
+#switch-button {
+    outline: none;
+    border: none;
+    background-color: #333;
+    width: 40px;
+    height: 40px;
+}
+
+#switch-button:active {
+    background-color: #666;
+    border-radius: 100%;
+}
+
+#switch-button img{
+    cursor: pointer;
+    width: 20px;
+    transform: translateY(50%);
+}
+
+
+/*=================================*/
+/* right side of the side tild bar */
+/*=================================*/
+
+
+#decimal-output {
+    font-weight: bold;
+    color: rgb(67, 150, 233);
+}
+
+#binary-output-underline, #decimal-output-underline, #hexadecimal-output-underline, #octal-output-underline {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: rgb(67, 150, 233);
+    top: 48px;
+    height: 4px;
+}
+
+#binary-output-underline {
+    width: 0px;
+}
+
+#decimal-output-underline {
+    width: 60px;
+}
+
+#hexadecimal-output-underline {
+    width: 0px;
+}
+
+#octal-output-underline {
+    width: 0px;
+}
+
+
+/*=================================*/
+/* translating field */
+/*=================================*/
+
+
+#translating-field {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 150px;
+    align-items: center;
+    border-radius: 0 0 10px 10px;
+}
+
+/* input-field*/
+#input-container {
+    height: 249px;
+    border-right: 1px #666 solid;
+}
+
+.translating-field {
+    height: 85%;
+    width: 90%;
+    resize: none;
+    overflow: auto;
+    word-break: break-all;
+    border: none;
+    margin-top: 15px;
+    margin-left: 15px;
+    background-color: #00000000;
+    font-size: 25px;
+}
+
+#output-container {
+    height: 249px;
+}

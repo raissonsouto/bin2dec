@@ -1,0 +1,85 @@
+
+        <p id="error-message"></p>
+    </main>
+    <footer>
+        <div class="footer-social-networks"><a href="https://github.com/RaissonSouto"><img src="github-logo.png" alt="github"></a></div>
+        <div class="footer-social-networks"><a href="https://www.instagram.com/souraisson/"><img src="instagram-logo.png" alt="instagram"></a></div>
+        <div class="footer-social-networks"><a href="https://www.linkedin.com/in/raissonsouto/"><img src="linkedin-logo.png" alt="linkedIn"></a></div>
+        <div class="footer-social-networks"><a href="https://twitter.com/souraisson"><img src="twitter.png" alt="twitter"></a></div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+
+#translating-field {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    height: 150px;
+    align-items: center;
+    border-radius: 0 0 10px 10px;
+}
+
+#error-message {
+    margin-top: 5px;
+    margin-left: 10px;
+    color: red;
+}
+
+/* input-field*/
+#input-container {
+    height: 150px;
+    border-top: 1px #666 solid;
+}
+
+#input-field {
+    max-width: 400px;
+    overflow: scroll;
+    word-break: break-all;
+    border: 1px #000000 solid;
+    margin-top: 15px;
+    margin-left: 15px;
+    width: 80%;
+    border: none;
+    outline: none;
+    background-color: #00000000;
+    border-bottom-left-radius: 10px;
+    font-size: 25px;
+}
+
+#line {
+    position: relative;
+    top: -0.5px;
+    width: 1px;
+    height: 150px;
+    background-color:#666;
+}
+
+#output-container {
+    height: 150px;
+    border-top: 1px #666 solid;
+}
+
+#output-field {
+    margin-top: 15px;
+    margin-left: 15px;
+    font-size: 25px;
+    background-color: #00000000;
+}
+
+
+/*document.getElementById("input-field").addEventListener('input', () => {
+
+    document.getElementById('error-message').innerHTML = '';
+
+    var req = document.getElementById("input-field").value;
+
+    if (document.getElementById('input-language').innerHTML == 'bin') {
+
+        document.getElementById("output-field").innerHTML = parseInt(req, 2).toString(10);
+
+    }   else if (document.getElementById('input-language').innerHTML == 'dec') {
+
+        document.getElementById("output-field").innerHTML = parseInt(req, 10).toString(2);
+
+    }
+})
