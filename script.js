@@ -78,6 +78,11 @@ function changeOutputBase(putToBeUsed,putWidth) {
     }
 }
 
+function translate (num,input,output) {
+
+    document.getElementById('output-textarea').value = parseInt(num, input).toString(output);
+    
+}
 //  input change
 
 document.getElementById('binary-input').addEventListener("click", () => {changeInputBase('binary-input','53px')});
@@ -95,3 +100,7 @@ document.getElementById('binary-output').addEventListener("click", () => {change
 document.getElementById('decimal-output').addEventListener("click", () => {changeOutputBase('decimal-output','53px')});
 document.getElementById('hexadecimal-output').addEventListener('click', () => {changeOutputBase('hexadecimal-output','93px')});
 document.getElementById('octal-output').addEventListener("click", () => {changeOutputBase('octal-output','43px')});
+
+//   translating
+
+document.getElementById('input-textarea').addEventListener('changed',translate(document.getElementById('input-textarea').value,inputInUseValue,outputInUseValue));
