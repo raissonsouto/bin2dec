@@ -29,6 +29,10 @@ function switchBases () {
     document.getElementById(listInputID[0]).style.fontWeight = 'bold';
     document.getElementById(listInputID[0]).style.color = 'rgb(67,150,233)';
 
+    var aux = document.getElementById('input-textarea').value;
+    document.getElementById('input-textarea').value = document.getElementById('output-textarea').value;
+    document.getElementById('output-textarea').value = aux;
+
     inputInUseID = listOutputID[0];
     inputInUseValue = document.getElementById(listOutputID[0]).value;
 
@@ -44,6 +48,8 @@ function changeInputBase(putToBeUsed,putWidth) {
 
     } else {
 
+        var changeText = inputInUseValue;
+
         document.getElementById(inputInUseID+"-underline").style.width = '0px';
         document.getElementById(inputInUseID).style.fontWeight = 'normal';
         document.getElementById(inputInUseID).style.color = '#fff';
@@ -54,6 +60,8 @@ function changeInputBase(putToBeUsed,putWidth) {
 
         inputInUseID = putToBeUsed;
         inputInUseValue = document.getElementById(putToBeUsed).value;
+
+        document.getElementById('input-textarea').value = parseInt(document.getElementById('input-textarea').value,changeText).toString(inputInUseValue);
     }
 }
 
@@ -65,6 +73,8 @@ function changeOutputBase(putToBeUsed,putWidth) {
 
     } else {
 
+        var changeText = outputInUseValue;
+
         document.getElementById(outputInUseID+"-underline").style.width = '0px';
         document.getElementById(outputInUseID).style.fontWeight = 'normal';
         document.getElementById(outputInUseID).style.color = '#fff';
@@ -75,32 +85,18 @@ function changeOutputBase(putToBeUsed,putWidth) {
 
         outputInUseID = putToBeUsed;
         outputInUseValue = document.getElementById(putToBeUsed).value;
+
+        document.getElementById('output-textarea').value = parseInt(document.getElementById('output-textarea').value,changeText).toString(outputInUseValue);
     }
 }
 
-function translate (num,input,output) {
+function translate (num) {
 
-    document.getElementById('output-textarea').value = parseInt(num, input).toString(output);
+    if (num == "") {
+        document.getElementById('output-textarea').value = "Number translated"
+
+    } else {
+        document.getElementById('output-textarea').value = parseInt(num,inputInUseValue).toString(outputInUseValue);
+    }
     
 }
-//  input change
-
-document.getElementById('binary-input').addEventListener("click", () => {changeInputBase('binary-input','53px')});
-document.getElementById('decimal-input').addEventListener("click", () => {changeInputBase('decimal-input','53px')});
-document.getElementById('hexadecimal-input').addEventListener('click', () => {changeInputBase('hexadecimal-input','93px')});
-document.getElementById('octal-input').addEventListener("click", () => {changeInputBase('octal-input','43px')});
-
-//  switch bases
-
-document.getElementById('switch-button').addEventListener('click', ()=> {switchBases()});
-
-//  output change
-
-document.getElementById('binary-output').addEventListener("click", () => {changeOutputBase('binary-output','53px')});
-document.getElementById('decimal-output').addEventListener("click", () => {changeOutputBase('decimal-output','53px')});
-document.getElementById('hexadecimal-output').addEventListener('click', () => {changeOutputBase('hexadecimal-output','93px')});
-document.getElementById('octal-output').addEventListener("click", () => {changeOutputBase('octal-output','43px')});
-
-//   translating
-
-document.getElementById('input-textarea').addEventListener('changed',translate(document.getElementById('input-textarea').value,inputInUseValue,outputInUseValue));
