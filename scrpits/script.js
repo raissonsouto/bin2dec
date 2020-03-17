@@ -48,8 +48,6 @@ function changeInputBase(putToBeUsed,putWidth) {
 
     } else {
 
-        var changeText = inputInUseValue;
-
         document.getElementById(inputInUseID+"-underline").style.width = '0px';
         document.getElementById(inputInUseID).style.fontWeight = 'normal';
         document.getElementById(inputInUseID).style.color = '#fff';
@@ -60,8 +58,6 @@ function changeInputBase(putToBeUsed,putWidth) {
 
         inputInUseID = putToBeUsed;
         inputInUseValue = document.getElementById(putToBeUsed).value;
-
-        document.getElementById('input-textarea').value = parseInt(document.getElementById('input-textarea').value,changeText).toString(inputInUseValue);
     }
 }
 
@@ -93,7 +89,7 @@ function changeOutputBase(putToBeUsed,putWidth) {
 function translate (num) {
 
     if (num == "") {
-        document.getElementById('output-textarea').value = "Number translated"
+        document.getElementById('output-textarea').value = "Number translated";
 
     } else {
         document.getElementById('output-textarea').value = parseInt(num,inputInUseValue).toString(outputInUseValue);
