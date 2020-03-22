@@ -37,4 +37,19 @@
     #output-box {
         display: none;
     }
+
+
+    #input-box {
+        display: grid;
+        grid-template-columns: 90% 10%;
+    }
+
+    #erase-button {
+        position: relative;
+        margin: 0px auto;
+        top: 15px;
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+    }
 }

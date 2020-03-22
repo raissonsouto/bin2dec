@@ -11,6 +11,11 @@
     height: 100%;
 }
 
+#input-box {
+    display: grid;
+    grid-template-columns: 90% 10%;
+}
+
 
 /* input-field */
 
@@ -21,19 +26,17 @@
     resize: none;
     overflow: auto;
     word-break: break-all;
-    display: inline-block;
     border: none;
-    margin-top: 15px;
-    margin-left: 15px;
+    margin-top: 20px;
+    margin-left: 20px;
     background-color: #00000000;
     font-size: 25px;
 }
 
 #erase-button {
     position: relative;
-    top: -190px;
-    right: -15px;
-    display: inline-block;
+    margin: 0px auto;
+    top: 15px;
     width: 15px;
     height: 15px;
     cursor: pointer;
@@ -55,3 +58,19 @@
 
 
 /* output-field */
+
+#output-box div {
+    resize: none;
+    height: 80%;
+    width: 90%;
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 25px;
+}
+
+
+@media (max-width: 1200px) {
+    #input-box {
+        grid-template-columns: 85% 15%;
+    }
+}
