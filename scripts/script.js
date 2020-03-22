@@ -10,18 +10,23 @@ var decDomain = ['0','1','2','3','4','5','6','7','8','9'];
 var hexnDomain = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
 var ocDomain = ['0','1','2','3','4','5','6','7'];
 
-/*function checkInput (input,domain) {
-
-    for (var percorreInput = 0; percorreInput < input.length; percorreInput++) {
-
-        for (var percorreDominio = 0; percorreDominio < domain.length; percorreDominio++) {
-            
-            if (domain[percorreDominio] == 0) {
-                alert('xd')
-            }
+function contains(value, domain){
+    for (var i in domain){
+        if (value == i){
+            return true;
         }
     }
-}*/
+    return false;
+}
+
+function checkInput (input,domain) {
+    for (var i in input.toString) {
+        if (!contains(i, domain)){
+            return false;
+        }
+    }
+    return true;
+}
 
 function switchBases () {
 
@@ -87,12 +92,13 @@ function changeOutputBase(putToBeUsed) {
 }
 
 function translate (num) {
-
-    if (num == "") {
-        document.getElementById('output-textarea').innerHTML = "Number translated";
-
-    } else {
-        document.getElementById('output-textarea').innerHTML = parseInt(num,inputInUseValue).toString(outputInUseValue);
+    if (checkInput(num, binDomain)){
+        if (num == "") {
+            document.getElementById('output-textarea').innerHTML = "Number translated";
+    
+        } else {
+            document.getElementById('output-textarea').innerHTML = parseInt(num,inputInUseValue).toString(outputInUseValue);
+        }   
     }
     
 }
