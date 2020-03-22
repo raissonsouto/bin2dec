@@ -10,7 +10,7 @@ var decDomain = ['0','1','2','3','4','5','6','7','8','9'];
 var hexnDomain = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
 var ocDomain = ['0','1','2','3','4','5','6','7'];
 
-function checkInput (input,domain) {
+/*function checkInput (input,domain) {
 
     for (var percorreInput = 0; percorreInput < input.length; percorreInput++) {
 
@@ -21,16 +21,12 @@ function checkInput (input,domain) {
             }
         }
     }
-}
+}*/
 
 function switchBases () {
 
     var listInputID = outputInUseID.split('-');
     var listOutputID = inputInUseID.split('-');
-
-    var teste = [0,1];
-    alert('ok');
-    alert(teste.length());
 
     listInputID[0] +='-input-button';
     listOutputID[0] +='-output-button';
@@ -91,13 +87,6 @@ function changeOutputBase(putToBeUsed) {
 }
 
 function translate (num) {
-
-    for () {
-
-        if (in_array) {
-
-        }
-    }
 
     if (num == "") {
         document.getElementById('output-textarea').innerHTML = "Number translated";
