@@ -1,0 +1,127 @@
+/* the header of the main and it buttons */
+
+#header-main {
+    /* size */
+    width: 100%;
+    height: 50px;
+    /* align */
+    text-align: center;
+    align-items: center;
+    /* structure */
+    display: grid;
+    grid-template-columns: 1fr 50px 1fr;
+    /* beautifying */
+    border-bottom: 1px #444 solid;
+}
+
+#header-main ul {
+    /* size */
+    width: 100%;
+    height: 100%;
+    /* position */
+    padding-left: 0px;
+}
+
+#header-main li {
+    /* size */
+    height: 100%;
+    /* align */
+    align-items: center;
+    text-align: center;
+    margin: 0px 4%;
+    /* structure */
+    display: inline-flex;
+    /* beautifying*/
+    list-style: none;
+    cursor: pointer;
+}
+
+#header-main li div {
+    display: grid;
+    grid-template-rows: 1fr 4px;
+}
+
+#header-main li div div {
+    /* size */
+    height: 4px;
+    width: 100%;
+    /* position */
+    display: none;
+    margin-top: 15px;
+    /* beautifying*/
+    background: rgb(67, 150, 233);
+}
+
+.base-xput-button div {
+    font-weight: bold;
+    color: rgb(67, 150, 233);
+}
+
+.base-xput-button div div {
+    display: block;
+}
+
+#binary-input-button,
+#binary-output-button {
+    width: 44px;
+}
+
+#decimal-input-button,
+#decimal-output-button {
+    width: 57px;
+}
+#hexadecimal-input-button,
+#hexadecimal-output-button {
+    width: 91px;
+}
+#octal-input-button,
+#octal-output-button {
+    width: 36px;
+}
+
+#header-main #select-input-button,
+#header-main #select-output-button {
+    display: none;
+}
+
+/* switch button */
+
+#switch-bases-button {
+    /* size */
+    width: 40px;
+    height: 40px;
+}
+
+#switch-bases-button:active {
+    /* beautifying */
+    background-color: #444;
+    border-radius: 100%;
+}
+
+#switch-bases-button img{
+    /* size */
+    width: 20px;
+    /* position */
+    transform: translateY(50%);
+    /* beautifying */
+    cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+
+    #header-main li {
+        margin: 0px 6%;
+    }
+
+    #header-main #octal-input-button,
+    #header-main #octal-output-button,
+    #header-main #hexadecimal-input-button,
+    #header-main #hexadecimal-output-button {
+        display: none;
+    }
+
+    #header-main #select-input-button,
+    #header-main #select-output-button {
+        display: inline-flex;
+    }
+}

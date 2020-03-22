@@ -1,0 +1,19 @@
+@media (max-width: 720px) {
+
+    header {
+        border-bottom: 1px #333 solid;
+    }
+    
+    main {
+        margin-top: 0px;
+        position: relative;
+        min-height: 0px;
+        height: 200px;
+        min-width: 0px;
+        width: 100%;
+        left: 50%;
+        top: 50;
+        transform: translate(-50%,0%);
+        border-radius: 0px;
+    }
+}

@@ -1,0 +1,40 @@
+@media (max-width: 720px) {
+    
+    #header-main #decimal-input-button,
+    #header-main #hexadecimal-input-button,
+    #header-main #octal-input-button,
+    #header-main #binary-output-button,
+    #header-main #hexadecimal-output-button,
+    #header-main #octal-output-button,
+    #header-main #select-input-button,
+    #header-main #select-output-button {
+        display: none;
+    }
+
+    #body-main {
+        grid-template-columns: none;
+        grid-template-rows: 1fr 1px 1fr;
+    }
+
+
+    #split-body {
+        width: 100%;
+        height: 1px;
+    }
+
+    /* body-part*/
+
+    #body-main {
+        grid-template-columns: none;
+        grid-template-rows: 1fr 1px;
+    }
+
+    #split-body-line {
+        width: 100%;
+        height: 1px;
+    }
+
+    #output-box {
+        display: none;
+    }
+}
