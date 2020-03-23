@@ -7,26 +7,9 @@ var outputInUseValue = 10;
 
 var binDomain = ['0','1'];
 var decDomain = ['0','1','2','3','4','5','6','7','8','9'];
-var hexnDomain = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
+var hexDomain = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
 var ocDomain = ['0','1','2','3','4','5','6','7'];
 
-function contains(value, domain){
-    for (var i in domain){
-        if (value == i){
-            return true;
-        }
-    }
-    return false;
-}
-
-function checkInput (input,domain) {
-    for (var i in input.toString) {
-        if (!contains(i, domain)){
-            return false;
-        }
-    }
-    return true;
-}
 
 function switchBases () {
 
@@ -91,19 +74,68 @@ function changeOutputBase(putToBeUsed) {
     }
 }
 
-function translate (num) {
-    if (checkInput(num, binDomain)){
-        if (num == "") {
-            document.getElementById('output-textarea').innerHTML = "Number translated";
-    
-        } else {
-            document.getElementById('output-textarea').innerHTML = parseInt(num,inputInUseValue).toString(outputInUseValue);
-        }   
-    }
-    
-}
-
 function erase () {
     document.getElementById('input-textarea').value = '';
     document.getElementById('output-textarea').innerHTML = '';
+}
+
+function contains(value, domain){
+    for (var i in domain){
+
+        if (value == i){
+            return true;
+        }
+    }
+    return false;
+}
+
+function checkInput (input) {
+
+    var domain;
+
+    if (inputInUseValue == 2) {domain = decDomain}
+    else if (inputInUseValue == 10) {domain = decDomain}
+    else if (inputInUseValue == 16) {domain = hexDomain}
+    else if (inputInUseValue == 8) {domain = ocDomain}
+
+    var retorno = true;
+
+    for (var runInput = 0; runInput < input.length; runInput++) {
+
+        for (var runDomain = 0; runDomain < domain.length; runDomain++) {
+
+            if (input[runInput] == domain[runDomain]) {
+
+                retorno = true;
+                break;
+            }
+            retorno = false;
+        }
+
+        if (retorno == false) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function translate (num) {
+
+    if (checkInput(num, binDomain)){
+        document.getElementById('output-textarea').innerHTML = parseInt(num,inputInUseValue).toString(outputInUseValue);
+    } 
+}
+
+function inputChange(num) {
+    
+    if (num == "") {
+
+        document.getElementById('erase-button').style.display == "none";
+        document.getElementById('placeholder-output-textarea').style.display == "block";
+    } else {
+
+        document.getElementById('erase-button').style.display == "block";
+        document.getElementById('placeholder-output-textarea').style.display == "none";
+        translate(num);
+    }
 }

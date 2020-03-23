@@ -22,18 +22,19 @@
 
 #input-box textarea {
     height: 87%;
-    width: 85%;
+    width: 95%;
     resize: none;
     overflow: auto;
     word-break: break-all;
     border: none;
-    margin-top: 20px;
+    margin-top: 25px;
     margin-left: 20px;
     background-color: #222;
     font-size: 25px;
 }
 
 #erase-button {
+    display: none;
     position: relative;
     margin: 0px auto;
     top: 15px;
@@ -63,9 +64,13 @@
     resize: none;
     height: 80%;
     width: 90%;
-    margin-top: 20px;
+    margin-top: 25px;
     margin-left: 20px;
     font-size: 25px;
+}
+
+#placeholder-output-textarea {
+    color: #888;
 }
 
 
