@@ -70,30 +70,24 @@ function changeOutputBase(putToBeUsed) {
         outputInUseID = putToBeUsed;
         outputInUseValue = document.getElementById(putToBeUsed).value;
 
-        document.getElementById('output-textarea').value = parseInt(document.getElementById('output-textarea').value,changeText).toString(outputInUseValue);
+        translate();
     }
 }
 
 function erase () {
     document.getElementById('input-textarea').value = '';
-    document.getElementById('output-textarea').innerHTML = '';
-}
+    document.getElementById('erase-button').style.display = "none";
+    document.getElementById('placeholder-output-textarea').innerHTML = "Translation";
+    document.getElementById('output-textarea').style.display = "none";
+    document.getElementById('input-textarea').placeholder = "Number";
 
-function contains(value, domain){
-    for (var i in domain){
-
-        if (value == i){
-            return true;
-        }
-    }
-    return false;
 }
 
 function checkInput (input) {
 
     var domain;
 
-    if (inputInUseValue == 2) {domain = decDomain}
+    if (inputInUseValue == 2) {domain = binDomain}
     else if (inputInUseValue == 10) {domain = decDomain}
     else if (inputInUseValue == 16) {domain = hexDomain}
     else if (inputInUseValue == 8) {domain = ocDomain}
@@ -119,23 +113,27 @@ function checkInput (input) {
     return true;
 }
 
-function translate (num) {
+function translate() {
 
-    if (checkInput(num, binDomain)){
-        document.getElementById('output-textarea').innerHTML = parseInt(num,inputInUseValue).toString(outputInUseValue);
-    } 
-}
-
-function inputChange(num) {
+    var num = document.getElementById('input-textarea').value;
     
     if (num == "") {
 
-        document.getElementById('erase-button').style.display == "none";
-        document.getElementById('placeholder-output-textarea').style.display == "block";
+        document.getElementById('erase-button').style.display = "none";
+        document.getElementById('placeholder-output-textarea').innerHTML = "Translation";
+        document.getElementById('output-textarea').style.display = "none";
+        document.getElementById('input-textarea').placeholder = "Number";
+        
     } else {
 
-        document.getElementById('erase-button').style.display == "block";
-        document.getElementById('placeholder-output-textarea').style.display == "none";
-        translate(num);
+        document.getElementById('erase-button').style.display= "block";
+        document.getElementById('placeholder-output-textarea').innerHTML = "";
+        document.getElementById('output-textarea').style.display = "block";
+
+        if (!checkInput(num)) {
+            document.getElementById('output-textarea').innerHTML = "Ops ... maybe you typed something wrong";
+        } else {
+            document.getElementById('output-textarea').innerHTML = parseInt(num,inputInUseValue).toString(outputInUseValue);
+        }
     }
 }

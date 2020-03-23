@@ -19,7 +19,7 @@ document.getElementById('octal-output-button').addEventListener("click", () => {
 //   translating
 
 document.getElementById('input-textarea').addEventListener('input',() => {
-    inputChange(document.getElementById('input-textarea').value);
+    translate();
 });
 
 document.getElementById('erase-button').addEventListener('click',() => {

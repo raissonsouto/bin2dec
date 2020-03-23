@@ -27,9 +27,9 @@
     overflow: auto;
     word-break: break-all;
     border: none;
-    margin-top: 25px;
-    margin-left: 20px;
-    background-color: #222;
+    padding-top: 25px;
+    padding-left: 25px;
+    background-color: #00000000;
     font-size: 25px;
 }
 
@@ -62,10 +62,10 @@
 
 #output-box div {
     resize: none;
-    height: 80%;
+    height: 90%;
     width: 90%;
-    margin-top: 25px;
-    margin-left: 20px;
+    padding-top: 25px;
+    padding-left: 25px;
     font-size: 25px;
 }
 
