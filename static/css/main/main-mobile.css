@@ -14,30 +14,8 @@
     #body-main {
         grid-template-columns: none;
         grid-template-rows: 1fr 1px 1fr;
+        height: 300px;
     }
-
-
-    #split-body {
-        width: 100%;
-        height: 1px;
-    }
-
-    /* body-part*/
-
-    #body-main {
-        grid-template-columns: none;
-        grid-template-rows: 1fr 1px;
-    }
-
-    #split-body-line {
-        width: 100%;
-        height: 1px;
-    }
-
-    #output-box {
-        display: none;
-    }
-
 
     #input-box {
         display: grid;
@@ -51,5 +29,15 @@
         width: 15px;
         height: 15px;
         cursor: pointer;
+    }
+
+    #split-body {
+        width: 100%;
+        height: 1px;
+    }
+
+    #split-body-line {
+        width: 100%;
+        height: 1px;
     }
 }

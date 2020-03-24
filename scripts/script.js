@@ -10,8 +10,12 @@ var decDomain = ['0','1','2','3','4','5','6','7','8','9'];
 var hexDomain = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
 var ocDomain = ['0','1','2','3','4','5','6','7'];
 
-
 function switchBases () {
+    
+    if (document.getElementById('output-textarea').innerHTML == "Ops ... maybe you typed something wrong") {
+        erase();
+    
+    }
 
     var listInputID = outputInUseID.split('-');
     var listOutputID = inputInUseID.split('-');
@@ -19,21 +23,17 @@ function switchBases () {
     listInputID[0] +='-input-button';
     listOutputID[0] +='-output-button';
 
-    document.getElementById(inputInUseID).className = "";
-    document.getElementById(outputInUseID).className = "";
-
-    document.getElementById(listInputID[0]).className = "base-xput-button";
-    document.getElementById(listOutputID[0]).className = "base-xput-button";
+    var auxd = inputInUseValue;
+    inputInUseValue = outputInUseValue;
+    outputInUseValue = auxd;
 
     var aux = document.getElementById('input-textarea').value;
     document.getElementById('input-textarea').value = document.getElementById('output-textarea').innerHTML;
     document.getElementById('output-textarea').innerHTML = aux;
 
-    inputInUseID = listInputID[0];
-    inputInUseValue = document.getElementById(listInputID[0]).value;
+    changeInputBase(listInputID[0]);
+    changeOutputBase(listOutputID[0]);
 
-    outputInUseID = listOutputID[0];
-    outputInUseValue = document.getElementById(listOutputID[0]).value;
 }
 
 function changeInputBase(putToBeUsed) {
@@ -78,7 +78,7 @@ function erase () {
     document.getElementById('input-textarea').value = '';
     document.getElementById('erase-button').style.display = "none";
     document.getElementById('placeholder-output-textarea').innerHTML = "Translation";
-    document.getElementById('output-textarea').style.display = "none";
+    document.getElementById('output-textarea').innerHTML = "";
     document.getElementById('input-textarea').placeholder = "Number";
 
 }
@@ -133,7 +133,7 @@ function translate() {
         if (!checkInput(num)) {
             document.getElementById('output-textarea').innerHTML = "Ops ... maybe you typed something wrong";
         } else {
-            document.getElementById('output-textarea').innerHTML = parseInt(num,inputInUseValue).toString(outputInUseValue);
+            document.getElementById('output-textarea').innerHTML = parseInt(num,inputInUseValue).toString(outputInUseValue).toUpperCase();
         }
     }
 }

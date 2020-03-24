@@ -4,6 +4,15 @@
         border-bottom: 1px #333 solid;
     }
     
+    #app-ideas {
+        display: none;
+    }
+
+    header div {
+        margin: 0px;
+        text-align: center;
+    }
+    
     main {
         margin-top: 0px;
         position: relative;

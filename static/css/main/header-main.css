@@ -43,22 +43,18 @@
 
 #header-main li div div {
     /* size */
-    height: 4px;
+    height: 0px;
     width: 100%;
     /* position */
-    display: none;
-    margin-top: 15px;
+    display: block;
+    margin-top: -32px;
     /* beautifying*/
     background: rgb(67, 150, 233);
 }
 
 .base-xput-button div {
-    font-weight: bold;
+    font-weight: 500;
     color: rgb(67, 150, 233);
-}
-
-.base-xput-button div div {
-    display: block;
 }
 
 #binary-input-button,
@@ -123,5 +119,11 @@
     #header-main #select-input-button,
     #header-main #select-output-button {
         display: inline-flex;
+    }
+
+    #select-input-button img,
+    #select-output-button img {
+        margin-left: 10px;
+        width: 10px;
     }
 }

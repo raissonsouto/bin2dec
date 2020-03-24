@@ -13,6 +13,42 @@ header {
     height: 50px;
     width: 100%;
     background-color: #222;
+    justify-content: space-around;
+}
+
+#hamburguer {
+    width: 30px;
+    height: 3px;
+    position: relative;
+    display: none;
+    top: 50%;
+    margin-left: 2%;
+    transform: translateY(-50%);
+    background-color: #eee;
+}
+
+#hamburguer::before, #hamburguer::after {
+    content:"";
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 3px;
+    background-color: #eee;
+}
+
+#hamburguer::before {
+    top: -7px;
+}
+
+#hamburguer::after {
+    top: 4px;
+}
+
+header div {
+    position: relative;
+    margin: 0px 2%;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 header a {

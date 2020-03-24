@@ -10,12 +10,17 @@
     <link rel="stylesheet" href="static/css/main/body-main.css">
     <link rel="stylesheet" href="static/css/main/main-mobile.css">
     <link rel="stylesheet" href="static/css/style-mobile.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <header><a href="https://github.com/raissonsouto/app-ideas">app-ideas</a>
-        /<a href="https://github.com/raissonsouto/app-ideas/blob/master/Projects/1-Beginner/Bin2Dec-App.md">
-            Bin2Dec</a></header>
+    <header>
+        <div>
+            <div id="hamburguer"></div>
+            <a href="https://github.com/raissonsouto/app-ideas" id="app-ideas">app-ideas/</a>
+            <a href="https://github.com/raissonsouto/app-ideas/blob/master/Projects/1-Beginner/Bin2Dec-App.md" id="bin2dec">Bin2Dec</a>
+            <a>contact</a>
+        </div>
+    </header>
     <!--coisas pra melhorar:
     o underline dos botões de seleção de base numérica (fazer eles aderirem ao tamanho do texto do botao)-->
     <main>
@@ -25,7 +30,7 @@
                 <li value="10" id="decimal-input-button"><div>decimal<div></div></div></li>
                 <li value="16" id="hexadecimal-input-button"><div>hexadecimal<div></div></div></li>
                 <li value="8" id="octal-input-button"><div>octal<div></div></div></li>
-                <li id="select-input-button">x</li>
+                <li id="select-input-button">select<img src="static/images/arrow-down.png" alt=""></li>
             </ul>
             <div id="switch-bases-button"><img src="static/images/baseline_sync_alt_white_18dp.png" alt=""></div>
             <ul>
@@ -33,7 +38,7 @@
                 <li value="10" id="decimal-output-button" class="base-xput-button"><div>decimal<div></div></div></li>
                 <li value="16" id="hexadecimal-output-button"><div>hexadecimal<div></div></div></li>
                 <li value="8" id="octal-output-button"><div>octal<div></div></div></li>
-                <li id="select-output-button">x</li>
+                <li id="select-output-button">select<img src="static/images/arrow-down.png" alt=""></li>
             </ul>
         </div>
         <div id="body-main">
