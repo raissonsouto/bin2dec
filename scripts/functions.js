@@ -42,6 +42,10 @@ function changeInputBase(putToBeUsed) {
 
         switchBases();
 
+    } else if (window.innerWidth < 721 && putToBeUsed == inputInUseID) {
+        
+        document.getElementById('choose-put').style.display = "block";
+
     } else {
 
         document.getElementById(inputInUseID).className = "";
@@ -59,6 +63,9 @@ function changeOutputBase(putToBeUsed) {
 
         switchBases();
 
+    } else if (window.innerWidth < 721 && putToBeUsed == inputInUseID) {
+        
+        document.getElementById('choose-put').style.display = "block";
     } else {
 
         var changeText = outputInUseValue;
@@ -134,6 +141,60 @@ function translate() {
             document.getElementById('output-textarea').innerHTML = "Ops ... maybe you typed something wrong";
         } else {
             document.getElementById('output-textarea').innerHTML = parseInt(num,inputInUseValue).toString(outputInUseValue).toUpperCase();
+        }
+    }
+}
+
+function resize() {
+    if (window.innerWidth < 720) {
+        
+        document.getElementById('placeholder-output-textarea').innerHTML = "Translation";
+        document.getElementById('iput-textarea').placeholder = "Number";
+    } else {
+        
+        if(window.innerWidth < 1200) {
+
+            document.getElementById('binary-input').innerHTML = "bin";
+            document.getElementById('decimal-input').innerHTML = "dec";
+            document.getElementById('hexadecimal-input').innerHTML = "hex";
+            document.getElementById('octal-input').innerHTML = "oct";
+    
+            document.getElementById('binary-output').innerHTML = "bin";
+            document.getElementById('decimal-output').innerHTML = "dec";
+            document.getElementById('hexadecimal-output').innerHTML = "hex";
+            document.getElementById('octal-output').innerHTML = "oct";
+    
+            document.getElementById('binary-input-button').style.width = "30px";
+            document.getElementById('decimal-input-button').style.width = "30px";
+            document.getElementById('hexadecimal-input-button').style.width = "30px";
+            document.getElementById('octal-input-button').style.width = "30px";
+    
+            document.getElementById('binary-output-button').style.width = "30px";
+            document.getElementById('decimal-output-button').style.width = "30px";
+            document.getElementById('hexadecimal-output-button').style.width = "30px";
+            document.getElementById('octal-output-button').style.width = "30px";
+        } else {
+    
+            document.getElementById('binary-input').innerHTML = "binary";
+            document.getElementById('decimal-input').innerHTML = "decimal";
+            document.getElementById('hexadecimal-input').innerHTML = "hexadecimal";
+            document.getElementById('octal-input').innerHTML = "octal";
+    
+            document.getElementById('binary-output').innerHTML = "binary";
+            document.getElementById('decimal-output').innerHTML = "decimal";
+            document.getElementById('hexadecimal-output').innerHTML = "hexadecimal";
+            document.getElementById('octal-output').innerHTML = "octal";
+    
+            document.getElementById('binary-input-button').style.width = "44px";
+            document.getElementById('decimal-input-button').style.width = "57px";
+            document.getElementById('hexadecimal-input-button').style.width = "91px";
+            document.getElementById('octal-input-button').style.width = "36px";
+    
+            document.getElementById('binary-output-button').style.width = "44px";
+            document.getElementById('decimal-output-button').style.width = "57px";
+            document.getElementById('hexadecimal-output-button').style.width = "91px";
+            document.getElementById('octal-output-button').style.width = "36px";
+    
         }
     }
 }

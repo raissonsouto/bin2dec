@@ -25,9 +25,3 @@ document.getElementById('input-textarea').addEventListener('input',() => {
 document.getElementById('erase-button').addEventListener('click',() => {
     erase();
 });
-
-
-window.addEventListener('resize', () => {
-    if(window.innerWidth < 720) {
-    }
-})

@@ -18,27 +18,22 @@
             <div id="hamburguer"></div>
             <a href="https://github.com/raissonsouto/app-ideas" id="app-ideas">app-ideas/</a>
             <a href="https://github.com/raissonsouto/app-ideas/blob/master/Projects/1-Beginner/Bin2Dec-App.md" id="bin2dec">Bin2Dec</a>
-            <a>contact</a>
         </div>
     </header>
-    <!--coisas pra melhorar:
-    o underline dos botões de seleção de base numérica (fazer eles aderirem ao tamanho do texto do botao)-->
     <main>
         <div id="header-main">
             <ul>
-                <li value="2" id="binary-input-button" class="base-xput-button"><div>binary<div></div></div></li>
-                <li value="10" id="decimal-input-button"><div>decimal<div></div></div></li>
-                <li value="16" id="hexadecimal-input-button"><div>hexadecimal<div></div></div></li>
-                <li value="8" id="octal-input-button"><div>octal<div></div></div></li>
-                <li id="select-input-button">select<img src="static/images/arrow-down.png" alt=""></li>
+                <li value="2" id="binary-input-button" class="base-xput-button"><div id="binary-input">binary<div></div></div></li>
+                <li value="10" id="decimal-input-button"><div id="decimal-input">decimal<div></div></div></li>
+                <li value="16" id="hexadecimal-input-button"><div id="hexadecimal-input">hexadecimal<div></div></div></li>
+                <li value="8" id="octal-input-button"><div id="octal-input">octal<div></div></div></li>
             </ul>
             <div id="switch-bases-button"><img src="static/images/baseline_sync_alt_white_18dp.png" alt=""></div>
             <ul>
-                <li value="2" id="binary-output-button"><div>binary<div></div></div></li>
-                <li value="10" id="decimal-output-button" class="base-xput-button"><div>decimal<div></div></div></li>
-                <li value="16" id="hexadecimal-output-button"><div>hexadecimal<div></div></div></li>
-                <li value="8" id="octal-output-button"><div>octal<div></div></div></li>
-                <li id="select-output-button">select<img src="static/images/arrow-down.png" alt=""></li>
+                <li value="2" id="binary-output-button"><div id="binary-output">binary<div></div></div></li>
+                <li value="10" id="decimal-output-button" class="base-xput-button"><div id="decimal-output">decimal<div></div></div></li>
+                <li value="16" id="hexadecimal-output-button"><div id="hexadecimal-output">hexadecimal<div></div></div></li>
+                <li value="8" id="octal-output-button"><div id="octal-output">octal<div></div></div></li>
             </ul>
         </div>
         <div id="body-main">
@@ -49,8 +44,17 @@
             <div id="split-body-line"></div>
             <div class="xput-box" id="output-box"><div><span id="placeholder-output-textarea">And let me translate for you</span><span id="output-textarea"></span></div></div>
         </div>
+        <div id="choose-put">
+            <div>
+                <div>binary</div>
+                <div>decimal</div>
+                <div>hexadecimal</div>
+                <div>octal</div>
+            </div>
+        </div>
     </main>
-    <script src="scripts/script.js"></script>
+    <script src="scripts/functions.js"></script>
+    <script src="scripts/UIEvents.js"></script>
     <script src="scripts/events.js"></script>
 </body>
 </html>
