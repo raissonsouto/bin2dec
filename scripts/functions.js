@@ -12,48 +12,168 @@ var ocDomain = ['0','1','2','3','4','5','6','7'];
 
 function switchBases () {
     
-    if (document.getElementById('output-textarea').innerHTML == "Ops ... maybe you typed something wrong") {
-        erase();
+    if (window.innerWidth < 721) {
+
+        document.getElementById(inputInUseID).style.display = 'none';
+        document.getElementById(inputInUseID).className = "";
+        document.getElementById(outputInUseID).style.display = 'none';
+        document.getElementById(outputInUseID).className = "";
+
+        var listInputID = outputInUseID.split('-');
+        var listOutputID = inputInUseID.split('-');
     
+        inputInUseID = listInputID[0] + '-input-button';
+        outputInUseID = listOutputID[0] + '-output-button';
+
+        var aux = inputInUseValue;
+        inputInUseValue = outputInUseValue;
+        outputInUseValue = aux;
+
+        document.getElementById(inputInUseID).style.display = 'inline-flex';
+        document.getElementById(inputInUseID).className = "base-xput-button";
+        document.getElementById(outputInUseID).style.display = 'inline-flex';
+        document.getElementById(outputInUseID).className = "base-xput-button";
+
+    } else {
+
+        if (document.getElementById('output-textarea').innerHTML == "Ops ... maybe you typed something wrong") {
+            erase();
+        
+        }
+    
+        var auxd = inputInUseValue;
+        inputInUseValue = outputInUseValue;
+        outputInUseValue = auxd;
+    
+        var aux = document.getElementById('input-textarea').value;
+        document.getElementById('input-textarea').value = document.getElementById('output-textarea').innerHTML;
+        document.getElementById('output-textarea').innerHTML = aux;
+    
+        changeInputBase(listInputID[0]);
+        changeOutputBase(listOutputID[0]);
     }
-
-    var listInputID = outputInUseID.split('-');
-    var listOutputID = inputInUseID.split('-');
-
-    listInputID[0] +='-input-button';
-    listOutputID[0] +='-output-button';
-
-    var auxd = inputInUseValue;
-    inputInUseValue = outputInUseValue;
-    outputInUseValue = auxd;
-
-    var aux = document.getElementById('input-textarea').value;
-    document.getElementById('input-textarea').value = document.getElementById('output-textarea').innerHTML;
-    document.getElementById('output-textarea').innerHTML = aux;
-
-    changeInputBase(listInputID[0]);
-    changeOutputBase(listOutputID[0]);
 
 }
 
-function changeInputBase(putToBeUsed) {
+function chooseInputBase(id) {
+
+    if (document.getElementById(id).value == outputInUseValue) {
+       switchBases();
+    }
+
+    else {
+        if (id == 2) {
+
+            document.getElementById(inputInUseID).style.display = 'none';
+            document.getElementById(inputInUseID).className = "";
+            inputInUseID = 'binary-input-button';
+            inputInUseValue = 2;
+            document.getElementById(inputInUseID).style.display = 'inline-flex';
+            document.getElementById(inputInUseID).className = "base-xput-button";
     
-    if (outputInUseValue == document.getElementById(putToBeUsed).value) {
+        } else if (id == 10) {
+    
+            document.getElementById(inputInUseID).style.display = 'none';
+            document.getElementById(inputInUseID).className = "";
+            inputInUseID = 'decimal-input-button';
+            inputInUseValue = 10;
+            document.getElementById(inputInUseID).style.display = 'inline-flex';
+            document.getElementById(inputInUseID).className = "base-xput-button";
+    
+        } else if (id == 16) {
+    
+            document.getElementById(inputInUseID).style.display = 'none';
+            document.getElementById(inputInUseID).className = "";
+            inputInUseID = 'hexadecimal-input-button';
+            inputInUseValue = 16;
+            document.getElementById(inputInUseID).style.display = 'inline-flex';
+            document.getElementById(inputInUseID).className = "base-xput-button";
+    
+        } else if (id == 8) {
+    
+            document.getElementById(inputInUseID).style.display = 'none';
+            document.getElementById(inputInUseID).className = "";
+            inputInUseID = 'octal-input-button';
+            inputInUseValue = 8;
+            document.getElementById(inputInUseID).style.display = 'inline-flex';
+            document.getElementById(inputInUseID).className = "base-xput-button";
+    
+        }
+    }
 
+    document.getElementById('choose-put').style.display = "none";
+}
+
+function chooseOutputBase(id) {
+
+    if (document.getElementById().value == inputInUseValue) {
         switchBases();
+    }
 
-    } else if (window.innerWidth < 721 && putToBeUsed == inputInUseID) {
-        
+    else {
+        if (id == "choose-bin") {
+
+            document.getElementById(outputInUseID).style.display = 'none';
+            document.getElementById(outputInUseID).className = "";
+            outputInUseID = 'binary-output-button';
+            outputInUseValue = 2;
+            document.getElementById(outputInUseID).style.display = 'inline-flex';
+            document.getElementById(outputInUseID).className = "base-xput-button";
+    
+        } else if (id == "choose-dec") {
+    
+            document.getElementById(outputInUseID).style.display = 'none';
+            document.getElementById(outputInUseID).className = "";
+            outputInUseID = 'decimal-output-button';
+            outputInUseValue = 10;
+            document.getElementById(outputInUseID).style.display = 'inline-flex';
+            document.getElementById(outputInUseID).className = "base-xput-button";
+    
+        } else if (id == "choose-hex") {
+    
+            document.getElementById(outputInUseID).style.display = 'none';
+            document.getElementById(outputInUseID).className = "";
+            outputInUseID = 'hexadecimal-output-button';
+            outputInUseValue = 16;
+            document.getElementById(outputInUseID).style.display = 'inline-flex';
+            document.getElementById(outputInUseID).className = "base-xput-button";
+    
+        } else if (id == "choose-oct") {
+    
+            document.getElementById(outputInUseID).style.display = 'none';
+            document.getElementById(outputInUseID).className = "";
+            outputInUseID = 'octal-output-button';
+            outputInUseValue = 8;
+            document.getElementById(outputInUseID).style.display = 'inline-flex';
+            document.getElementById(outputInUseID).className = "base-xput-button";
+    
+        }
+    }
+
+    document.getElementById('choose-put').style.display = "none";
+}
+
+function changeInputBase(putToBeUsed) {
+
+    if (window.innerWidth < 721) {
+
         document.getElementById('choose-put').style.display = "block";
 
     } else {
 
-        document.getElementById(inputInUseID).className = "";
+        if (outputInUseValue == document.getElementById(putToBeUsed).value) {
 
-        document.getElementById(putToBeUsed).className = "base-xput-button";
-
-        inputInUseID = putToBeUsed;
-        inputInUseValue = document.getElementById(putToBeUsed).value;
+            switchBases();
+    
+        } else {
+    
+            document.getElementById(inputInUseID).className = "";
+    
+            document.getElementById(putToBeUsed).className = "base-xput-button";
+    
+            inputInUseID = putToBeUsed;
+            inputInUseValue = document.getElementById(putToBeUsed).value;
+        }
     }
 }
 
@@ -66,6 +186,7 @@ function changeOutputBase(putToBeUsed) {
     } else if (window.innerWidth < 721 && putToBeUsed == inputInUseID) {
         
         document.getElementById('choose-put').style.display = "block";
+
     } else {
 
         var changeText = outputInUseValue;

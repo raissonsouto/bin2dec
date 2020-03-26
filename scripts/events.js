@@ -5,6 +5,13 @@ document.getElementById('decimal-input-button').addEventListener("click", () => 
 document.getElementById('hexadecimal-input-button').addEventListener('click', () => {changeInputBase('hexadecimal-input-button')});
 document.getElementById('octal-input-button').addEventListener("click", () => {changeInputBase('octal-input-button')});
 
+//  input choose
+
+document.getElementById('choose-bin').addEventListener("click", () => {chooseInputBase('choose-bin')});
+document.getElementById('choose-dec').addEventListener("click", () => {chooseInputBase('choose-dec')});
+document.getElementById('choose-hex').addEventListener("click", () => {chooseInputBase('choose-hex')});
+document.getElementById('choose-oct').addEventListener("click", () => {chooseInputBase('choose-oct')});
+
 //  switch bases
 
 document.getElementById('switch-bases-button').addEventListener('click', ()=> {switchBases()});
