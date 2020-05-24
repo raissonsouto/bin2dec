@@ -1,14 +1,8 @@
-import React, { Component, useEffect } from 'react'
+import React, { Component } from 'react'
 import BaseOptions from './BaseOptions'
 import Switch from './Switch'
 
 export default class Header extends Component {
-
-    constructor(props) {
-        super(props)
-        this.state = {width: 40, pos: 50}
-
-    }
 
     getStyle() {
         return {
@@ -25,13 +19,13 @@ export default class Header extends Component {
                 <BaseOptions
                     value={this.props.inputBase}
                     changeBase={this.props.changeInputBase}
-                    underline={this.state}
+                    underline={this.props.inputBase}
                 />
                 <Switch switchBase={this.props.switchBase}/>
                 <BaseOptions
                     value={this.props.outputBase}
                     changeBase={this.props.changeOutputBase}
-                    underline={this.state}
+                    underline={this.props.outputBase}
                 />
             </div>
         )

@@ -12,6 +12,10 @@ export default class BaseOptions extends Component {
         }
     }
 
+    ok(val) {
+        console.log('teste')
+    }
+
     render() {
 
         return (
@@ -27,6 +31,8 @@ export default class BaseOptions extends Component {
                             value: 2,
                             active: this.props.value == 2 ? true : false
                         }}
+
+                        info={this.ok}
                     />
                     <BaseButton
                         changeBase={this.props.changeBase}
@@ -37,6 +43,8 @@ export default class BaseOptions extends Component {
                             value: 10,
                             active: this.props.value == 10 ? true : false
                         }}
+
+                        info={this.ok}
                     />
                     <BaseButton
                         changeBase={this.props.changeBase}
@@ -47,6 +55,8 @@ export default class BaseOptions extends Component {
                             value: 16,
                             active: this.props.value == 16 ? true : false
                         }}
+
+                        info={this.ok}
                     />
                     <BaseButton
                         changeBase={this.props.changeBase}
@@ -57,6 +67,8 @@ export default class BaseOptions extends Component {
                             value: 8,
                             active: this.props.value == 8 ? true : false
                         }}
+
+                        info={this.ok}
                     />
                 </ul>
                 <Underline underline={this.props.underline} />

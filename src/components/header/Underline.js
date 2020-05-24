@@ -1,27 +1,23 @@
-import React, { Component } from 'react'
+import React, { useState , useRef , useEffect } from 'react'
 
-export default class Underline extends Component {
+export default function Underline(props) {
 
-    constructor(props) {
-        super(props)
-        this.state = { width: this.props.underline.width, pos: this.props.underline.pos}
-    }
+    const [underline, setUnderline] = useState({
+        position: 'relative',
+        left: 80,
+        height: 3,
+        width: 40,
+        backgroundColor: '#08f',
+        transform: 'translateY(-2px)'
+    })
 
-    getStyle() {
+    const underlineRef = useRef(null)
 
-        return {
-            position: 'relative',
-            left: this.state.pos,
-            height: 3,
-            width: this.state.width,
-            backgroundColor: '#08f',
-            transform: 'translateY(-2px)'
-        }
-    }
+    useEffect(() => {
+        console.log(underlineRef.current.offsetWidth)
+    }, [props.underline])
 
-    render() {
-        return (
-            <div style={this.getStyle()}></div>
-        )
-    }
+    return (
+        <div style={underline} ref={underlineRef}></div>
+    )
 }

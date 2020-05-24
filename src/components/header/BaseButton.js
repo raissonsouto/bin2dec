@@ -1,31 +1,41 @@
-import React, { Component } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
+import Media from 'react-media'
 
-export default class BaseButton extends Component {
+export default function BaseButton(props) {
 
-    getStyle() {
-        return {
-            height: 50,
-            display: 'inline-block',
-            color: this.props.base.active ? '#08f' : '#eee',
-            padding: '15px 0px',
-            cursor: 'pointer',
-            WebkitTouchCallout: 'none', /* iOS Safari */
-            WebkitUserSelect: 'none', /* Safari */
-            khtmlUserSelect: 'none', /* Konqueror HTML */
-            MozUserSelect: 'none', /* Old versions of Firefox */
-            msUserSelect: 'none', /* Internet Explorer/Edge */
-            userSelect: 'none', 
-        }
+    const buttoon = useRef(null)
+
+    const [state, setState] = useState({width: 0, left: 0, value: 8})
+
+    useEffect(() => {
+        setState({width: buttoon.current.offsetWidth})
+        setState({left: buttoon.current.offsetLeft})
+        setState({left: props.base.value})
+    }, [])
+
+    const getStyle = {
+        height: 50,
+        display: 'inline-block',
+        color: props.base.active ? '#08f' : '#eee',
+        padding: '15px 0px',
+        cursor: 'pointer',
+        WebkitTouchCallout: 'none', // iOS Safari 
+        WebkitUserSelect: 'none', // Safari 
+        khtmlUserSelect: 'none', // Konqueror HTML 
+        MozUserSelect: 'none', // Old versions of Firefox 
+        msUserSelect: 'none', // Internet Explorer/Edge 
+        userSelect: 'none', 
     }
 
-    render() {
-        return (
-            <li 
-            style={this.getStyle()}
-            onClick={this.props.changeBase.bind(this, this.props.base.value)}
-            >
-                {window.innerWidth > 1150 ? this.props.base.fullName : this.props.base.shortName}
-            </li>
-        )
-    }
+    return (
+        <li
+        style={getStyle}
+        ref={buttoon}
+        onClick={props.changeBase.bind(state, props.base.value)}
+        >
+            <Media queries={{ small: { minWidth: 1150 } }}>
+                {matches => matches.small ? props.base.fullName : props.base.shortName}
+            </Media>
+        </li>
+    )
 }

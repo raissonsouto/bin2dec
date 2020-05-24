@@ -5,24 +5,6 @@ import Body from './body/Body'
 
 export default class Main extends Component {
 
-    getStyle() {
-        return {
-            minHeight: 300,
-            height: '40%',
-            minWidth: 720,
-            width: '70%',
-            position: 'absolute',
-            left: '50%',
-            top: '50%',
-            marginTop: 25,
-            transform: 'translate(-50%,-50%)',
-            display: 'grid',
-            gridTemplateRows: '50px 1fr',
-            borderRadius: 10,
-            backgroundColor: '#222',
-        }
-    }
-
     constructor(props) {
         super(props)
         this.state = { value: '', output: '', inputBase: 2, outputBase: 10}
@@ -41,6 +23,7 @@ export default class Main extends Component {
     }
 
     setInputBase = (value) => {
+        console.log('value:'+value)
         value == this.state.outputBase ? this.switchBase() : this.setState({inputBase: value})
     }
 
