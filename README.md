@@ -8,14 +8,12 @@ Expected result (To be honest, have some details that I didn't decided yet)
 
 ### When the user enter in the page
 
-<img src='./bin2dec-print1.png'  height='400'>
-<img src='./bin2dec-mobile1.png' height='400'>
+<img src='./bin2dec-print1.png'  height='300'><img src='./bin2dec-mobile1.png' height='300'>
 
 ### In use
 
 
-<img src='./bin2dec-print2.png'  height='400'>
-<img src='./bin2dec-mobile2.png' height='400'>
+<img src='./bin2dec-print2.png'  height='300'><img src='./bin2dec-mobile2.png' height='300'>
 
 ## Features
 
