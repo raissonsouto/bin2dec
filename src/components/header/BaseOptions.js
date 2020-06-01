@@ -1,77 +1,45 @@
 import React, { Component } from 'react'
 import BaseButton from './BaseButton'
 import Underline from './Underline'
+import data from './bases.json'
 
 export default class BaseOptions extends Component {
 
-    getStyle() {
-        
-        return {
-            display: 'flex',
-            justifyContent: 'space-evenly',
-        }
+    constructor (props) {
+        super(props)
+        this.state = {left: 0, width: 0}
     }
 
-    ok(val) {
-        console.log('teste')
+    setUnderline(data) {
+        if(this.state.left != data.left || this.state.width != data.width) {
+            this.setState({left: data.left})
+            this.setState({width: data.width})
+        }
     }
 
     render() {
 
         return (
             <div>
-                <ul style={this.getStyle()}>
-                    <BaseButton 
-                    
-                        changeBase={this.props.changeBase} 
-                    
-                        base={{
-                            fullName: 'binary',
-                            shortName: 'bin',
-                            value: 2,
-                            active: this.props.value == 2 ? true : false
-                        }}
+                <ul style={{
+                    position: 'relative',
+                    display: 'flex',
+                    justifyContent: 'space-evenly',
+                }}>
 
-                        info={this.ok}
-                    />
-                    <BaseButton
-                        changeBase={this.props.changeBase}
-                        
-                        base={{
-                            fullName: 'decimal',
-                            shortName: 'dec',
-                            value: 10,
-                            active: this.props.value == 10 ? true : false
-                        }}
+                    {data.numberBases.map((numberBase) => (
 
-                        info={this.ok}
-                    />
-                    <BaseButton
-                        changeBase={this.props.changeBase}
-                        
-                        base={{
-                            fullName: 'hexadecimal',
-                            shortName: 'hex',
-                            value: 16,
-                            active: this.props.value == 16 ? true : false
-                        }}
+                        <BaseButton
+                            setBase={this.props.setBase}
+                            active={this.props.value}
+                            base={numberBase}
+                            key={numberBase.key}
+                            setUnderline={this.setUnderline.bind(this)}
+                        />
 
-                        info={this.ok}
-                    />
-                    <BaseButton
-                        changeBase={this.props.changeBase}
-                        
-                        base={{
-                            fullName: 'octal',
-                            shortName: 'oct',
-                            value: 8,
-                            active: this.props.value == 8 ? true : false
-                        }}
-
-                        info={this.ok}
-                    />
+                    ))}
                 </ul>
-                <Underline underline={this.props.underline} />
+                <Underline left={this.state.left} width={this.state.width} />
             </div>
         )
     }

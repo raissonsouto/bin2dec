@@ -4,26 +4,27 @@ This is an atempt to create a base converter using [React](https://github.com/fa
 
 ## Preview
 
-Expected result (To be honest, have some details that I didn't decided yet)
+Expected result (To be honest, have some details that I didn't decided yetstart)
 
 ### When the user enter in the page
 
-<img src='./bin2dec-print1.png'  height='300'><img src='./bin2dec-mobile1.png' height='300'>
+<img src='./bin2dec-print1.png'  height='350'>&nbsp;<img src='./bin2dec-mobile1.png' height='350'>
 
 ### In use
 
 
-<img src='./bin2dec-print2.png'  height='300'><img src='./bin2dec-mobile2.png' height='300'>
+<img src='./bin2dec-print2.png'  height='350'>&nbsp;<img src='./bin2dec-mobile2.png' height='350'>
 
 ## Features
 
 ### Already Running
 
-- Translate (v 1.0)
+- Translate
+- choose base bar effects
 
 ### Working on
 
-- choose base bar effects
+- dinamic textarea
 
 ### Future features
 
@@ -31,11 +32,15 @@ Expected result (To be honest, have some details that I didn't decided yet)
 - A step by step to show the translation process
 - Mobile version
 
-### Bugs to solve
-
-- output infinito
-- dinamic texarea
-
 ## Contributing
 
 You can contribute to this project implementing the features to be implemented and sending a pull request.
+
+## Author
+
+- **Raisson Souto**
+
+## Acknowledgement
+
+- [app-ideas](https://github.com/florinpop17/app-ideas)
+

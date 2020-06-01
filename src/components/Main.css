@@ -13,3 +13,16 @@
     border-radius: 10px;
     background-color: #222;
 }
+
+@media (max-width: 720px) {
+    .Main {
+        min-width: 0px;
+        width: 100%;
+        left: 0;
+        top: 50px;
+        margin-top: 0px;
+        transform: translate(0%,0%);
+        border-radius: 0;
+        border-top: 1px solid #555;
+    }
+}

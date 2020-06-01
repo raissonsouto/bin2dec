@@ -1,41 +1,74 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect ,createRef, Component} from 'react'
 import Media from 'react-media'
 
-export default function BaseButton(props) {
+export default class BaseButton extends Component {
 
-    const buttoon = useRef(null)
-
-    const [state, setState] = useState({width: 0, left: 0, value: 8})
-
-    useEffect(() => {
-        setState({width: buttoon.current.offsetWidth})
-        setState({left: buttoon.current.offsetLeft})
-        setState({left: props.base.value})
-    }, [])
-
-    const getStyle = {
-        height: 50,
-        display: 'inline-block',
-        color: props.base.active ? '#08f' : '#eee',
-        padding: '15px 0px',
-        cursor: 'pointer',
-        WebkitTouchCallout: 'none', // iOS Safari 
-        WebkitUserSelect: 'none', // Safari 
-        khtmlUserSelect: 'none', // Konqueror HTML 
-        MozUserSelect: 'none', // Old versions of Firefox 
-        msUserSelect: 'none', // Internet Explorer/Edge 
-        userSelect: 'none', 
+    constructor(props) {
+        super(props)
+        this.state = this.props.base
     }
 
-    return (
-        <li
-        style={getStyle}
-        ref={buttoon}
-        onClick={props.changeBase.bind(state, props.base.value)}
-        >
-            <Media queries={{ small: { minWidth: 1150 } }}>
-                {matches => matches.small ? props.base.fullName : props.base.shortName}
-            </Media>
-        </li>
-    )
+    getStyle() {
+        return {
+            height: 50,
+            display: 'inline-block',
+            color: this.state.active ? '#08f' : '#eee',
+            padding: '15px 0px',
+            cursor: 'pointer',
+            transition: '0.3s',
+            WebkitTouchCallout: 'none',
+            WebkitUserSelect: 'none',
+            khtmlUserSelect: 'none',
+            MozUserSelect: 'none',
+            msUserSelect: 'none', 
+            userSelect: 'none',
+        }
+    }
+
+    ref = createRef()
+
+    componentWillMount() {
+
+        if (this.props.active == this.state.value) {
+            this.setState({active: true})
+        }
+    }
+
+    componentDidMount() {
+        if (this.state.active) {
+            this.props.setUnderline({
+                width: this.ref.current.offsetWidth,
+                left: this.ref.current.offsetLeft
+            })
+        }
+    }
+
+    componentWillUpdate(nextProps) {
+
+        if (this.state.active && nextProps.active != this.state.value) {
+            this.setState({active: false})
+
+        } else if (nextProps.active == this.state.value && !this.state.active) {
+            this.setState({active: true})
+            this.props.setUnderline({
+                width: this.ref.current.offsetWidth,
+                left: this.ref.current.offsetLeft
+            })
+        }
+    }
+
+    render() {
+        return (
+            <li
+            style={this.getStyle()}
+            ref={this.ref}
+            onClick={this.props.setBase.bind(this, this.state.value)}
+
+            >
+                <Media queries={{ small: { minWidth: 1150 } }}>
+                    {matches => matches.small ? this.state.fullName : this.state.shortName}
+                </Media>
+            </li>
+        )
+    }
 }

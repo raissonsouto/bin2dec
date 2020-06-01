@@ -9,6 +9,8 @@
   background-color: #111;
   width: 100%;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* what I actually did*/
@@ -17,4 +19,20 @@ header {
   height: 50px;
   width: 100%;
   background-color: #222;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  color: #fff;
+  font-size: 30px;
+  padding-left: 2%;
+}
+
+.help-a {
+  display: none;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }

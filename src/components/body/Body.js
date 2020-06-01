@@ -1,19 +1,13 @@
 import React, { Component } from 'react'
 import InputField from './InputField'
 import OutputField from './OutputField'
+import './body.css'
 
 export default class Body extends Component {
 
-    getStyle () {
-        return {
-            display: 'grid',
-            gridTemplateColumns: '50% 50%',
-        }
-    }
-
     render() {
         return (
-            <div style={this.getStyle()}>
+            <div className='body'>
                 <InputField
                     onChange={this.props.onChange}
                     input={this.props.input}

@@ -18,14 +18,12 @@ export default class Header extends Component {
             <div style={this.getStyle()}>
                 <BaseOptions
                     value={this.props.inputBase}
-                    changeBase={this.props.changeInputBase}
-                    underline={this.props.inputBase}
+                    setBase={this.props.changeInputBase}
                 />
                 <Switch switchBase={this.props.switchBase}/>
                 <BaseOptions
                     value={this.props.outputBase}
-                    changeBase={this.props.changeOutputBase}
-                    underline={this.props.outputBase}
+                    setBase={this.props.changeOutputBase}
                 />
             </div>
         )

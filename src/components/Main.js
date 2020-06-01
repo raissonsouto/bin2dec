@@ -23,7 +23,6 @@ export default class Main extends Component {
     }
 
     setInputBase = (value) => {
-        console.log('value:'+value)
         value == this.state.outputBase ? this.switchBase() : this.setState({inputBase: value})
     }
 
@@ -34,7 +33,7 @@ export default class Main extends Component {
     //body
 
     translate = (input) => {
-        this.setState({value: input.target.value})
+        this.setState({value: input.target.value.toUpperCase()})
         this.setState({output: parseInt(input.target.value,this.state.inputBase).toString(this.state.outputBase).toUpperCase()})
     }
 

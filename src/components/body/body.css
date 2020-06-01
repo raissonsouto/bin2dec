@@ -1,0 +1,58 @@
+.body {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.inputField {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.textarea {
+    width: 92%;
+    height: 100%;
+    background-color: #00000000;
+    border: none;
+    resize: none;
+    padding: 20px 0px 20px 20px;
+    color: #eee;
+    font-size: 30px;
+}
+
+.erase {
+    display: block;
+    margin: 15px 15px 0px auto;
+    cursor: pointer;
+    float: right;
+}
+
+.notErase {
+    display: none;
+    margin: 15px 15px 0px auto;
+    float: right;
+}
+
+.img {
+    width: 15px;
+}
+
+.outputImgs {
+    position: absolute;
+    bottom: 0px;
+    right: 15px;
+}
+
+.outputImgs img {
+    width: 25px;
+    margin: 7px;
+    cursor: pointer;
+}
+
+@media (max-width: 720px) {
+    .body {
+        grid-template-columns: none;
+        grid-template-rows: 80% 50%;
+    }
+}
