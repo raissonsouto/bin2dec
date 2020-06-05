@@ -1,6 +1,5 @@
 .body {
     display: grid;
-    grid-template-columns: 50% 50%;
 }
 
 .inputField {
@@ -8,6 +7,7 @@
     height: 100%;
     display: flex;
     align-items: flex-start;
+    max-height: 1000px;
 }
 
 .textarea {
@@ -26,28 +26,20 @@
     margin: 15px 15px 0px auto;
     cursor: pointer;
     float: right;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none; 
+    user-select: none;
 }
 
 .notErase {
     display: none;
-    margin: 15px 15px 0px auto;
-    float: right;
 }
 
 .img {
     width: 15px;
-}
-
-.outputImgs {
-    position: absolute;
-    bottom: 0px;
-    right: 15px;
-}
-
-.outputImgs img {
-    width: 25px;
-    margin: 7px;
-    cursor: pointer;
 }
 
 @media (max-width: 720px) {

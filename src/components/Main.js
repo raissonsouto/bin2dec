@@ -7,8 +7,9 @@ export default class Main extends Component {
 
     constructor(props) {
         super(props)
-        this.state = { value: '', output: '', inputBase: 2, outputBase: 10}
+        this.state = { value: '', output: '', inputBase: 2, outputBase: 10, height: 0}
     }
+
 
     //header
 
@@ -33,8 +34,12 @@ export default class Main extends Component {
     //body
 
     translate = (input) => {
-        this.setState({value: input.target.value.toUpperCase()})
-        this.setState({output: parseInt(input.target.value,this.state.inputBase).toString(this.state.outputBase).toUpperCase()})
+        this.setState({value: input.toUpperCase()})
+        let output = parseInt(input,this.state.inputBase).toString(this.state.outputBase).toUpperCase()
+        if(output == 'NAN') {
+            output = ''
+        }
+        this.setState({output: output})
     }
 
     erase = () => {
@@ -42,11 +47,26 @@ export default class Main extends Component {
         this.setState({output: ''})
     }
 
+    setHeight(height) {
+
+        if (height.input >= height.output &&
+            height.input + 90 != this.state.height) {
+            
+            this.setState({height: height.input + 90})
+
+        } else if (height.output > height.input &&
+            height.output + 120 != this.state.height) {
+
+            this.setState({height: height.output + 120})
+
+        }
+    }
+
     //render
 
     render() {
         return (
-            <div className='Main'>
+            <div className='Main' style={{height: this.state.height}}>
                 <Header
                 //states
                     inputBase={this.state.inputBase}
@@ -60,6 +80,7 @@ export default class Main extends Component {
                     //actions
                     onChange={this.translate}
                     erase={this.erase}
+                    setHeight={this.setHeight.bind(this)}
                     //states
                     input={this.state.value}
                     output={this.state.output}

@@ -24,7 +24,7 @@ Expected result (To be honest, have some details that I didn't decided yetstart)
 
 ### Working on
 
-- dinamic textarea
+- dinamic textarea (it's almost finished, I just need to put a max width and a dinamic font size to assure that the main div don't trespass it space)
 
 ### Future features
 

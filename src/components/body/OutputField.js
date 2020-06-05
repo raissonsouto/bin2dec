@@ -1,8 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component, createRef } from 'react'
 import './body.css'
-import Copy from './copy.png'
-import Help from './help.png'
-import Share from './share.png'
 
 export default class OutputField extends Component {
 
@@ -10,7 +7,9 @@ export default class OutputField extends Component {
         return {
             width: '100%',
             height: '100%',
+            maxHeight: '800px',
             padding: 15,
+            display: this.props.output != ''? 'block' : 'none',
             backgroundColor: '#1c1c1c',
             fontSize: 30,
             color: '#eee',
@@ -19,15 +18,16 @@ export default class OutputField extends Component {
         }
     }
 
+    ref = createRef()
+
+    componentWillUpdate () {
+        this.props.setHeight(this.ref.current.offsetHeight)
+    }
+
     render() {
         return (
             <div style={this.getStyle()}>
-                {this.props.output}
-                <div className='outputImgs'>
-                <img onClick={() => {alert('teste')}}className='help' src={Help} alt='help' />
-                <img onClick={() => {alert('teste')}}className='copy' src={Copy} alt='copy' />
-                <img onClick={() => {alert('teste')}}className='share' src={Share} alt='share' />
-                </div>
+                <div ref={this.ref}>{this.props.output}</div>
             </div>
         )
     }
