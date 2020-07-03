@@ -1,19 +1,15 @@
 import React, { Component } from 'react'
-import BaseButton from './BaseButton'
+import BaseButton from './SelectOption'
 import Underline from './Underline'
-import data from './bases.json'
+import json from './numericBases.json'
 
 export default class BaseOptions extends Component {
 
-    constructor (props) {
-        super(props)
-        this.state = {left: 0, width: 0}
-    }
+    state = {left: 0, width: 0}
 
-    setUnderline(data) {
-        if(this.state.left != data.left || this.state.width != data.width) {
-            this.setState({left: data.left})
-            this.setState({width: data.width})
+    setUnderline(width,left) {
+        if(this.state.left != left || this.state.width != width) {
+            this.setState({left: left, width: width})
         }
     }
 
@@ -27,14 +23,15 @@ export default class BaseOptions extends Component {
                     justifyContent: 'space-evenly',
                 }}>
 
-                    {data.numberBases.map((numberBase) => (
+                    {json.numberBases.map((numberBase) => (
 
                         <BaseButton
-                            setBase={this.props.setBase}
                             active={this.props.value}
                             base={numberBase}
                             key={numberBase.key}
+                            //action
                             setUnderline={this.setUnderline.bind(this)}
+                            setBase={this.props.setBase}
                         />
 
                     ))}

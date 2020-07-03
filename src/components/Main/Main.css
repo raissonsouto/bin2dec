@@ -1,17 +1,14 @@
 .Main {
-    min-height: 300px;
-    height: 40%;
     min-width: 720px;
-    width: 60%;
+    min-height: 250px;
+    width: 65%;
     position: absolute;
     left: 50%;
     top: 50%;
-    margin-top: 25px;
+    margin-top: 35px;
     transform: translate(-50%,-50%);
     display: grid;
     grid-template-rows: 50px 1fr;
-    border-radius: 10px;
-    background-color: #222;
 }
 
 @media (max-width: 720px) {

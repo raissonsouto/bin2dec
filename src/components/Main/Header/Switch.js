@@ -17,11 +17,11 @@ export default class Switch extends Component {
 
     render() {
         return (
-            <div>
-               <div>
-                   <img onClick={this.props.switchBase} style={this.getStyle()} src={SwitchImg} alt='switch' />
-               </div>
-            </div>
+            <>
+               <button onClick={this.props.onClick} style={{border: 'none', backgroundColor: '#2220', height: 50}}>
+                   <img style={this.getStyle()} src={SwitchImg} alt='switch' />
+               </button>
+            </>
         )
     }
 }

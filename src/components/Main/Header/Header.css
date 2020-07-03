@@ -1,0 +1,44 @@
+.Header {
+    border-bottom: 1px solid #555;
+    display: grid;
+    grid-template-columns: 1fr 50px 1fr;
+    position: relative;
+    background-color: #222;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    height: 50px;
+}
+
+.close, .open {
+    background-color: #222;
+    border: none;
+    width: 100%;
+    transition: 0.2s;
+}
+
+.close {
+    height: 50px;
+}
+
+.open {
+    height: 250px;
+}
+
+.active {
+    font-size: 15px;
+    color: #fff;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #555;
+}
+
+@media (max-width: 720px) {
+    .Header {
+        width: 100%;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+}

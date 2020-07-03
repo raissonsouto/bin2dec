@@ -9,6 +9,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-media": "^1.10.0",
+    "react-picker": "^1.2.16",
     "react-scripts": "3.4.1",
     "react-textarea-autosize": "^8.0.1"
   },

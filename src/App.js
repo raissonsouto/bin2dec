@@ -1,31 +1,39 @@
-import React, { Component } from 'react';
-import './App.css';
-import Main from './components/Main.js'
+import React, { Component , createRef } from 'react'
+import Main from './components/Main/Main.js'
+import Header from './components/Header/Header.js'
 
 export default class App extends Component {
+
   constructor(props) {
     super(props)
-    this.state = { height: 0 }
+    this.state = { height: 250 }
   }
+
+  getStyle() {
+    return ({
+      width: '100%',
+      height: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+    })
+  }
+
+  ref = createRef()
 
   updateDimensions () {
-    this.setState({ height: window.innerHeight })
-  }
-
-  componentDidUpdate() {
-    return
+    this.setState({ height: this.ref.current.offsetHeight })
   }
 
   componentDidMount() {
+    this.setState({ height: this.ref.current.offsetHeight })
     window.addEventListener('resize', this.updateDimensions.bind(this))
   }
 
   render() {
     return (
-      <div className="App">
-      <header className='title'>bin<span style={{color: '#08f'}}>2</span>dec</header>
-      <Main />
-      <div className='help-a' style={{color: '#08f'}}>See a step by step</div>
+      <div  ref={this.ref} style={this.getStyle()}>
+      <Header />
+      <Main height={this.state.height} />
     </div>
     )
   }
