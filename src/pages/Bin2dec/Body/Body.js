@@ -30,22 +30,14 @@ export default class Body extends Component {
     }
 
     setpageHeight() {
-
-        if (this.state.pageHeight > this.props.height-150 &&
-            this.state.pageHeight < this.state.inputHeight &&
-            this.state.pageHeight < this.state.outputHeight) {
-
-            this.setState({pageHeight: this.props.height-150})
-
-        } else if (this.state.inputHeight != this.state.pageHeight &&
+        
+        if (this.state.inputHeight != this.state.pageHeight &&
             this.state.inputHeight > 250 &&
-            this.state.inputHeight < this.props.height-150 &&
             this.state.inputHeight >= this.state.outputHeight) {
 
             this.setState({pageHeight: this.state.inputHeight})
 
         } else if (this.state.outputHeight >= 250 &&
-            this.state.outputHeight <= this.props.height-150 &&
             this.state.outputHeight > this.state.inputHeight &&
             this.state.outputHeight != this.state.pageHeight) {
                 
@@ -124,7 +116,9 @@ export default class Body extends Component {
             this.setState({input: this.state.output, output: this.state.input})
 
         } else if (prevProps.output != this.props.output) {
-            this.setState({output: this.translate(this.state.input)})
+            let output = this.multipleLinesHandler(this.state.input)
+
+            this.setState({output: output})
         }
         this.setpageHeight()
     }

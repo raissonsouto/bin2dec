@@ -1,0 +1,26 @@
+.App {
+        width: 100%;
+        height: 100vh;
+        background-color: #555;
+}
+
+.Abody {
+    width: 100%;
+    height: calc(100% - 50px);
+    display: grid;
+}
+
+.Router {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media(max-width: 720px) {
+    .Router {
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+}

@@ -15,6 +15,11 @@
     position: relative;
 }
 
+.none {
+    border-bottom-right-radius: 10px;
+    width: 200%;
+}
+
 .fakeTextarea, .textarea {
     width: calc(100% - 52px);
     background-color: #0000;
@@ -43,8 +48,8 @@
 
 .output {
     font-size: 30px;
-    padding: 15px;
     width: 100%;
+    background-color: #1c1c1c;
     border-bottom-right-radius: 10px;
     padding: 15px;
 }
@@ -54,4 +59,19 @@
     color: #eee;
     font-size: 30px;
     word-break: break-all;
+}
+
+@media(max-width: 720px) {
+    .Body {
+        grid-template-columns: none;
+        grid-template-rows: 50% 50%;
+    }
+
+    .InputField {
+        border-bottom-left-radius: 0px;
+    }
+
+    .output{
+        border-bottom-right-radius: 0px;
+    }
 }

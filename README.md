@@ -4,7 +4,7 @@ This is an atempt to create a base converter using [React](https://github.com/fa
 
 ## Preview
 
-Expected result (To be honest, have some details that I didn't decided yetstart)
+Expected result (To be honest, have some details that I didn't decided yet)
 
 ### When the user enter in the page
 
@@ -24,13 +24,14 @@ Expected result (To be honest, have some details that I didn't decided yetstart)
 
 ### Working on
 
-- dinamic textarea (it's almost finished, I just need to put a max width and a dinamic font size to assure that the main div don't trespass it space)
+- dinamic textarea
+- Mobile version
 
 ### Future features
 
-- Translate (v 2.0)
+- Translate v2.0
 - A step by step to show the translation process
-- Mobile version
+- bin2bin (In bin2dec, the program translate a number in some base to the same number but in another base. In bin2bin (I didn't find in a better name), the idea is to translate this binary to another binary represetation (like two's complement, excess-128, etc))
 
 ## Contributing
 

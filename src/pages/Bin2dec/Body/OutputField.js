@@ -3,11 +3,6 @@ import './Body.css'
 
 export default class OutputField extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {bg: this.props.value == '' ? '#1c1c1c' : '#222'}
-    }
-
     ref = createRef()
 
     componentDidUpdate() {
@@ -16,7 +11,7 @@ export default class OutputField extends Component {
     
     render() {
         return (
-            <div className="output" style={{backgroundColor: this.state.bg}}>
+            <div className="output" style={{ display: this.props.value != '' ? 'block' : 'none'}}>
                 <div className='OutputField' ref={this.ref} >
                     {this.props.value.split('\n').map(line => {
                         if (line == "") {

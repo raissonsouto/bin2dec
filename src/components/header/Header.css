@@ -4,7 +4,62 @@ header {
   background-color: #222;
   display: flex;
   align-items: center;
-  color: #fff;
+  color: #eee;
   font-size: 20px;
-  padding-left: 2%;
+  padding-left: 10px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 3px #0005;
+}
+
+.hamburger {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.ham, .ham::before, .ham::after {
+  position: absolute;
+  width: 16px;
+  height: 2px;
+  background-color: #eee; 
+}
+
+.ham::before, .ham::after {
+  display: block;
+  content: '';
+  position: relative;
+}
+
+.ham::before{
+  top: -5px;
+}
+.ham::after{
+  top: 3px;
+}
+
+.ham {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.logo a{
+  color: #eee;
+  text-decoration: none;
+}
+
+@media(max-width: 720px) {
+  .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
 }

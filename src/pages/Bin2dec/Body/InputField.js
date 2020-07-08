@@ -18,7 +18,7 @@ export default class InputField extends Component {
     
     render() {
         return (
-            <div className='InputField'>
+            <div className={this.props.value != '' ? 'InputField' : 'InputField none'}>
                 <div className="fakeTextarea" ref={this.ref}>{
                     this.props.value.split('\n').map(line => {
                         if (line == "") {
@@ -35,7 +35,8 @@ export default class InputField extends Component {
                 ></textarea>
                 <img
                     onClick={this.props.erase}
-                    alt='erase' src={erase} className="erase"/>
+                    alt='erase' src={erase} className="erase"
+                    style={{ display: this.props.value != '' ? 'block' : 'none'}} />
             </div>
         )
     }
