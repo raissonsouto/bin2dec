@@ -82,6 +82,8 @@ export default class Body extends Component {
     onChangeHandler(input) {
         let output =this.multipleLinesHandler(input.target.value)
 
+        sessionStorage.setItem('input', input.target.value)
+
         this.setState({input: input.target.value, output: output})
     }
 

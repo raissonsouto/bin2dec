@@ -1,33 +1,35 @@
 import React, { Component } from 'react'
-import {Link, BrowserRouter as Router} from 'react-router-dom'
+import Button from './button'
 import './SideBar.css'
 
 export default class SideBar extends Component {
+
     render() {
         return (
-            <Router>
-                <div className='SideBar' style={{left: this.props.toggle}}>
+            <>
+            <div className='shadow' onMouseDown={this.props.desactive} style={{backgroundColor: this.props.active? '#0005' : '#0000'}}></div>
+            <div className='SideBar' style={{left: this.props.active ? '0px' : '-220px'}}>
 
-                    <div className='header'>Related services</div>
-                    <Link className='button' to='/'>translate</Link>
-                    <Link className='button' to='/step-by-step'>step by step</Link>
-                    <Link className='button' to='/bin2bin'>bin2bin</Link>
+                <div className='header'>Related services</div>
+                <Button path='/bin2dec' title='translate' desactive={this.props.desactive} />
+                <Button path='/step-by-step' title='step by step' desactive={this.props.desactive} />
+                <Button path='/bin2bin' title='bin2bin' desactive={this.props.desactive} />
 
-                    <div className='header'>Discover more about</div>
-                    <Link className='button' to='/binary'>binary</Link>
-                    <Link className='button' to='/decimal'>decimal</Link>
-                    <Link className='button' to='/hexadecimal'>hexadecimal</Link>
-                    <Link className='button' to='/octal'>octal</Link>
+                <div className='header'>Discover more about</div>
+                <Button path='/binary' title='binary' desactive={this.props.desactive} />
+                <Button path='/decimal' title='decimal' desactive={this.props.desactive} />
+                <Button path='/hexadecimal' title='hexadecimal' desactive={this.props.desactive} />
+                <Button path='/octal' title='octal' desactive={this.props.desactive} />
 
-                    <div className='header'>Other services</div>
-                    <Link className='button' to='/bin2bin'>games4free</Link>
-                    <Link className='button' to='/bin2bin'>darkness</Link>
+                <div className='header'>Other services</div>
+                <Button path='/games4free' title='games4free' desactive={this.props.desactive} />
+                <Button path='/darkness' title='darkness' desactive={this.props.desactive} />
                 
-                    <div className='header'>About</div>
-                    <Link className='button' to='/bin2bin'>contact</Link>
-                
-                </div>
-            </Router>
+                <div className='header'>About</div>
+                <Button path='/contact' title='contact' desactive={this.props.desactive} />
+                  
+            </div>
+            </>
         )
     }
 }

@@ -11,7 +11,7 @@ export default class Switch extends Component {
             transform: 'translate(-50%,-50%)',
             position: 'absolute',
             userSelect: 'none',
-            cursor: 'pointer',
+            cursor: 'pointer'
         }
     }
 

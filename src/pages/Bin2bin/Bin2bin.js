@@ -4,7 +4,7 @@ export default class Bin2bin extends Component {
     render() {
         return (
             <div>
-                bin2bin
+                {sessionStorage.getItem('input')}
             </div>
         )
     }
