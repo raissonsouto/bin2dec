@@ -8,6 +8,7 @@ import Header from './components/Header/Header'
 import SideBar from './components/SideBar/SideBar'
 //pages
 import Bin2dec from './pages/Bin2dec/Bin2dec'
+import StepByStep from './pages/StepByStep/StepByStep'
 import Bin2bin from './pages/Bin2bin/Bin2bin'
 //import Binary from './components/about-bases/Binary'
 //import Decimal from './components/about-bases/Decimal'
@@ -21,8 +22,6 @@ export default class App extends Component {
     this.state = { height: 250, sidebar: false }
   }
 
-  ref = createRef()
-
   toggleSideBar () {
     this.setState({sidebar: !this.state.sidebar})
   }
@@ -33,24 +32,16 @@ export default class App extends Component {
     }
   }
 
-  updateDimensions () {
-    this.setState({ height: this.ref.current.offsetHeight })
-  }
-
-  componentDidMount() {
-    this.setState({ height: this.ref.current.offsetHeight })
-    window.addEventListener('resize', this.updateDimensions.bind(this))
-  }
-
   render() {
     return (
       <Router>
-        <div  ref={this.ref} className='App'>
+        <div className='App'>
           <Header toggle={this.toggleSideBar.bind(this)} />
           <div className='Abody'>
             <SideBar active={this.state.sidebar} desactive={this.desactive.bind(this)} />
             <div className='Router'>
                 <Route exact path='/bin2dec' component={Bin2dec}/>
+                <Route exact path='/step-by-step' component={StepByStep}/>
                 <Route exact path='/bin2bin' component={Bin2bin}/>
             </div>
           </div>

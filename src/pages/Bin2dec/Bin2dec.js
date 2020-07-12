@@ -16,10 +16,12 @@ export default class Main extends Component {
 
     render() {
         return (
-            <div className='Main'>
-            <Header setBase={this.setBase.bind(this)}/>
-            <Body input={this.state.input} output={this.state.output} height={this.props.height} />
-        </div>
+            <>
+                <div className='Main'>
+                    <Header setBase={this.setBase.bind(this)}/>
+                    <Body input={this.state.input} output={this.state.output} height={this.props.height} />
+                </div>
+            </>
         )
     }
 }

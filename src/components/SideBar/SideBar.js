@@ -4,10 +4,31 @@ import './SideBar.css'
 
 export default class SideBar extends Component {
 
+    constructor(props) {
+        super(props)
+        this.state = {display: 'none'}
+    }
+
+    desactive() {
+        this.props.desactive()
+        setTimeout( () => {this.setState({display: 'none'})},200)
+    }
+
+    componentDidUpdate() {
+        if(this.props.active && this.state.display == 'none') {
+            this.setState({display: 'block'})
+        }
+    }
+
     render() {
         return (
             <>
-            <div className='shadow' onMouseDown={this.props.desactive} style={{backgroundColor: this.props.active? '#0005' : '#0000'}}></div>
+            <div
+                className='shadow'
+                onMouseDown={this.desactive.bind(this)}
+                style={{backgroundColor: this.props.active? '#0005' : '#0000',
+                    display: this.state.display}}>
+            </div>
             <div className='SideBar' style={{left: this.props.active ? '0px' : '-220px'}}>
 
                 <div className='header'>Related services</div>

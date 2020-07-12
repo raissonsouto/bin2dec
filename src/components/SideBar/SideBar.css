@@ -14,7 +14,7 @@
     left: 0;
     transition: 0.3s;
     z-index: 4;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .header {
