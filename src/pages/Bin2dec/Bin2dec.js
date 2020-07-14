@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Header from './Header/Header'
 import Body from './Body/Body'
-//mudar dps
 import './Main.css'
 
 export default class Main extends Component {
@@ -16,12 +15,10 @@ export default class Main extends Component {
 
     render() {
         return (
-            <>
-                <div className='Main'>
-                    <Header setBase={this.setBase.bind(this)}/>
-                    <Body input={this.state.input} output={this.state.output} height={this.props.height} />
-                </div>
-            </>
+            <div className='Main'>
+                <Header />
+                <Body input={sessionStorage.getItem('inputBase')} output={sessionStorage.getItem('outputBase')} />
+            </div>
         )
     }
 }

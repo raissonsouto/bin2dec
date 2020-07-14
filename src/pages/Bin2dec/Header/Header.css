@@ -10,30 +10,37 @@
     height: 50px;
 }
 
-.close, .open {
+.display {
     background-color: #222;
     border: none;
     width: 100%;
-    transition: 0.2s;
-    z-index: 2;
-}
-
-.close {
-    height: 50px;
-}
-
-.open {
-    height: 250px;
+    height: 49px;
 }
 
 .active {
     font-size: 15px;
-    color: #fff;
-    height: 50px;
+    color: #eee;
+    height: 49px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid #555;
+}
+
+.close, .open {
+    margin-top: 1px;
+    border: none;
+    width: 100%;
+    transition: 0.3s;
+    z-index: 3;
+}
+
+.close {
+    height: 0px;
+}
+
+.open {
+    height: 200px;
+    background-color: #333;
 }
 
 @media (max-width: 720px) {

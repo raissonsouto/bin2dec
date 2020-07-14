@@ -19,7 +19,14 @@ export default class App extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { height: 250, sidebar: false }
+    this.state = { sidebar: false }
+  }
+
+  componentDidMount() {
+    sessionStorage.setItem('inputBase', 2)
+    sessionStorage.setItem('outputBase', 10)
+    sessionStorage.setItem('input', 2)
+    sessionStorage.setItem('output', '')
   }
 
   toggleSideBar () {

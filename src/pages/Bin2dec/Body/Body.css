@@ -61,6 +61,10 @@
     word-break: break-all;
 }
 
+.sbs-link {
+    color: white;
+}
+
 @media(max-width: 720px) {
     .Body {
         grid-template-columns: none;

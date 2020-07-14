@@ -12,8 +12,34 @@ Expected result (To be honest, have some details that I didn't decided yet)
 
 ### In use
 
-
 <img src='./bin2dec-print2.png'  height='350'>&nbsp;<img src='./bin2dec-mobile2.png' height='350'>
+
+## Getting started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/en)
+- [React](https://reactjs.org/)
+- [React Media](https://github.com/ReactTraining/react-media)
+```$ npm install --save react-media```
+- [React Router](https://reactrouter.com/web/guides/quick-start)
+```$ npm install react-router-dom```
+
+### Instaling
+
+First, in the terminal, enter in the project folder and type
+
+```$ git clone https://github.com/raissonsouto/bin2dec.git```
+
+Than enter in the directory created
+
+```$ cd bin2dec```
+
+And finally, run the app
+
+```$ npm start```
 
 ## Features
 

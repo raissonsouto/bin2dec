@@ -6,19 +6,9 @@ export default class BaseOptions extends Component {
 
     state = {open: false}
 
-    toggleSelectOptions() {
-        if (!this.state.open) {
-            this.setState({open: true})
-        } else {
-            this.setState({open: false})
-        }
-    }
+    toggleSelectOptions = () => this.setState({open: !this.state.open})
 
-    close() {
-        if(this.state.open) {
-            this.setState({open: false})
-        }
-    }
+    close = () => setTimeout(() => { if(this.state.open) this.setState({open: false}) },100)
 
     setBase(value, name) {
         this.props.setBase(value, name)
@@ -28,28 +18,32 @@ export default class BaseOptions extends Component {
     render() {
 
         return (
-            <button
-                className={this.state.open == true ? 'open' : 'close'}
-                onBlur={this.close.bind(this)}
-            >
-                <div
-                    onClick={this.toggleSelectOptions.bind(this)}
-                    className='active'
+            <div>
+                <button
+                className='display'
+                    onBlur={this.close.bind(this)}
                 >
-                    {this.props.name}
-                </div>
-                {json.numberBases.map((numberBase) => (
+                    <div
+                        onClick={this.toggleSelectOptions.bind(this)}
+                        className='active'
+                    >
+                        {this.props.name}
+                    </div>
+                </button>
+                <div className={this.state.open == true ? 'open' : 'close'}>
+                    {json.numberBases.map((numberBase) => (
 
-                    <SelectOptionMobile
-                        active={this.props.value}
-                        base={numberBase}
-                        key={numberBase.key}
-                        open={this.state.open}
-                        //action
-                        setBase={this.setBase.bind(this)}
-                    />
-                ))}
-            </button>
+                        <SelectOptionMobile
+                            active={this.props.value}
+                            base={numberBase}
+                            key={numberBase.key}
+                            open={this.state.open}
+                            //action
+                            setBase={this.setBase.bind(this)}
+                        />
+                        ))}
+                </div>
+            </div>
         )
     }
 }

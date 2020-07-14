@@ -6,8 +6,6 @@ import './Body.css'
 export default class Body extends Component {
 
     state = {
-        input: '',
-        output: '',
         pageHeight: 250,
         inputHeight: 0,
         outputHeight: 0
@@ -111,6 +109,13 @@ export default class Body extends Component {
     }
 
     //react
+
+    componentDidMount() {
+        this.setState({
+            input: sessionStorage.getItem('input'),
+            output: sessionStorage.getItem('output')
+        })
+    }
     
     componentDidUpdate(prevProps) {
         
