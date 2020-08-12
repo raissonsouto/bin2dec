@@ -1,6 +1,6 @@
 # bin2dec 
 
-This is an atempt to create a base converter using [React](https://github.com/facebook/react). It's inspired by another project called [app-ideas](https://github.com/florinpop17/app-ideas), which suggest some creative ideas of apps to practice new skills/technologys instead the good old "to do list". The original idea is to make a simple binary to decimal translator, however, I decided to make something like a google translate for number and their number bases.
+This is an atempt to create a base converter using [React](https://github.com/facebook/react). It's inspired by another project called [app-ideas](https://github.com/florinpop17/app-ideas), which suggest some creative ideas of apps to practice new skills/technology's instead the good old "to do list". The original idea is to make a simple binary to decimal translator, however, I decided to make something like a google translate for number and their number bases.
 
 ## Preview
 
@@ -27,7 +27,7 @@ These instructions will get you a copy of the project up and running on your loc
 - [React Router](https://reactrouter.com/web/guides/quick-start)
 ```$ npm install react-router-dom```
 
-### Instaling
+### Installing
 
 First, in the terminal, enter in the project folder and type
 
@@ -37,7 +37,11 @@ Than enter in the directory created
 
 ```$ cd bin2dec```
 
-And finally, run the app
+And install the dependencies
+
+```$ npm install```
+
+Finally, run the app
 
 ```$ npm start```
 
@@ -58,6 +62,13 @@ And finally, run the app
 - Translate v2.0
 - A step by step to show the translation process
 - bin2bin (In bin2dec, the program translate a number in some base to the same number but in another base. In bin2bin (I didn't find in a better name), the idea is to translate this binary to another binary represetation (like two's complement, excess-128, etc))
+
+# bugs
+- change output base doesn't change the output value
+- output box change color without output value != ''
+- new line bug in output
+- mobile: infinite width and 2x height
+- base selector behind the input box
 
 ## Contributing
 

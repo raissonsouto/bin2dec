@@ -7,7 +7,9 @@ import './Header.css'
 
 export default class Header extends Component {
 
-    state = { inName: 'binary', outName: 'decimal' }
+    state = { inName: 'binary', outName: 'decimal',
+    input: sessionStorage.getItem('inputBase'),
+    output: sessionStorage.getItem('outputBase')}
 
     setInput = (value, name) => {
 
@@ -27,14 +29,14 @@ export default class Header extends Component {
     }
 
     switchBase = () => {
+        sessionStorage.setItem('inputBase',this.state.output)
+        sessionStorage.setItem('outputBase',this.state.input)
         this.setState({
             input: this.state.output,
             output: this.state.input,
             inName: this.state.outName,
             outName: this.state.inName
         })
-        sessionStorage.setItem('inputBase',this.state.input)
-        sessionStorage.setItem('outputBase',this.state.output)
     }
 
     componentDidMount() {
@@ -42,6 +44,12 @@ export default class Header extends Component {
             input: parseInt(sessionStorage.getItem('inputBase')),
             output: parseInt(sessionStorage.getItem('outputBase'))
         })
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.input != prevState.input || this.state.output != prevState.output) {
+            this.props.setBases(this.state.input, this.state.output)
+        }
     }
 
     render() {

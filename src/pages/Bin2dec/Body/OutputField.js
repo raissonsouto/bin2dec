@@ -17,7 +17,7 @@ export default class OutputField extends Component {
                         if (line == "") {
                             return <br/>
                         }
-                        return <p>{line}</p>
+                        return <span className='wordBreak'>{line}</span>
                     })}
                 </div>
             </div>

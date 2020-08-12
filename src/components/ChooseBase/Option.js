@@ -37,15 +37,6 @@ export default class BaseButton extends Component {
         }
     }
 
-    componentDidMount() {
-        if (this.state.active) {
-            this.props.setUnderline({
-                width: this.ref.current.offsetWidth,
-                left: this.ref.current.offsetLeft
-            })
-        }
-    }
-
     componentWillUpdate(nextProps) {
 
         //ex-active
@@ -55,11 +46,6 @@ export default class BaseButton extends Component {
         //new active
         } else if (nextProps.active == this.state.value && !this.state.active) {
             this.setState({active: true})
-            this.props.setUnderline(this.ref.current.offsetWidth,this.ref.current.offsetLeft)
-        }
-        //resize active
-        else if (nextProps.active == this.state.value) {
-            this.props.setUnderline(this.ref.current.offsetWidth,this.ref.current.offsetLeft)
         }
     }
 

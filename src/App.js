@@ -1,5 +1,5 @@
 //react imports
-import React, { Component , createRef } from 'react'
+import React, { Component, createRef } from 'react'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 //css
 import './App.css'
@@ -10,10 +10,6 @@ import SideBar from './components/SideBar/SideBar'
 import Bin2dec from './pages/Bin2dec/Bin2dec'
 import StepByStep from './pages/StepByStep/StepByStep'
 import Bin2bin from './pages/Bin2bin/Bin2bin'
-//import Binary from './components/about-bases/Binary'
-//import Decimal from './components/about-bases/Decimal'
-//import Hexadecimal from './components/about-bases/Hexadecimal'
-//import Octal from './components/about-bases/Octal'
 
 export default class App extends Component {
 
@@ -22,10 +18,19 @@ export default class App extends Component {
     this.state = { sidebar: false }
   }
 
+  ref = createRef()
+
+  updateDimensions () {
+    this.setState({ height: this.ref.current.offsetHeight })
+  }
+
   componentDidMount() {
+    this.setState({ height: this.ref.current.offsetHeight })
+    window.addEventListener('resize', this.updateDimensions.bind(this))
+    
     sessionStorage.setItem('inputBase', 2)
     sessionStorage.setItem('outputBase', 10)
-    sessionStorage.setItem('input', 2)
+    sessionStorage.setItem('input', '')
     sessionStorage.setItem('output', '')
   }
 
@@ -42,7 +47,7 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <div className='App'>
+        <div className='App' ref={this.ref}>
           <Header toggle={this.toggleSideBar.bind(this)} />
           <div className='Abody'>
             <SideBar active={this.state.sidebar} desactive={this.desactive.bind(this)} />

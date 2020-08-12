@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import InputField from './InputField'
 import OutputField from './OutputField'
+import validateInput from '../../../components/funcs/validateInput'
 import './Body.css'
 
 export default class Body extends Component {
 
     state = {
+        input: '',
+        output: '',
         pageHeight: 250,
         inputHeight: 0,
         outputHeight: 0
@@ -27,7 +30,7 @@ export default class Body extends Component {
         }
     }
 
-    setpageHeight() {
+    setPageHeight() {
         
         if (this.state.inputHeight != this.state.pageHeight &&
             this.state.inputHeight > 250 &&
@@ -54,33 +57,15 @@ export default class Body extends Component {
 
     erase() {
         this.setState({input: '', output: ''})
-    }
-
-    validate(input) {
-
-        let domain
-
-        if(this.props.input == 2) {
-            domain = /^[01]+$/
-
-        } else if(this.props.input == 10) {
-            domain = /^[0-9]+$/
-
-        } else if(this.props.input == 16) {
-            domain = /^[0-9A-F]+$/
-
-        } else if (this.props.input == 8) {
-            domain = /^[0-7]+$/
-
-        }
-
-        return !domain.test(input)
+        sessionStorage.setItem('input', '')
+        sessionStorage.setItem('output', '')
     }
 
     onChangeHandler(input) {
         let output =this.multipleLinesHandler(input.target.value)
 
         sessionStorage.setItem('input', input.target.value)
+        sessionStorage.setItem('output', output)
 
         this.setState({input: input.target.value, output: output})
     }
@@ -93,7 +78,7 @@ export default class Body extends Component {
             if (line == '') {
                 output += '\n'
 
-            } else if (this.validate(line)) {
+            } else if (validateInput(line)) {
                 output += 'Ops, maybe you typed something wrong\n'
 
             } else {
@@ -104,8 +89,8 @@ export default class Body extends Component {
         return output
     }
 
-    translate(value) {
-        return parseInt(value,this.props.input).toString(this.props.output).toUpperCase()
+    translate(num) {
+        return parseInt(num, parseInt(this.props.input).toString(parseInt(this.props.output)).toUpperCase())
     }
 
     //react
@@ -120,14 +105,18 @@ export default class Body extends Component {
     componentDidUpdate(prevProps) {
         
         if(prevProps.input != this.props.input && prevProps.output != this.props.output) {
+            console.log('c1')
             this.setState({input: this.state.output, output: this.state.input})
 
         } else if (prevProps.output != this.props.output) {
+            console.log(this.props.output)
+
             let output = this.multipleLinesHandler(this.state.input)
 
             this.setState({output: output})
+            console.log(output)
         }
-        this.setpageHeight()
+        this.setPageHeight()
     }
     
     render() {
@@ -138,9 +127,8 @@ export default class Body extends Component {
                     setValue={this.onChangeHandler.bind(this)}
                     getHeight={this.setInput.bind(this)}
                     erase={this.erase.bind(this)}
-                    parseJSX={this.parseJSX}
                 />
-                <OutputField value={this.state.output} getHeight={this.setOutput.bind(this)} parseJSX={this.parseJSX}/>
+                <OutputField value={this.state.output} getHeight={this.setOutput.bind(this)} />
             </div>
         )
     }
