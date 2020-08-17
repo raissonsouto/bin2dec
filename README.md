@@ -18,7 +18,7 @@ Expected result (To be honest, have some details that I didn't decided yet)
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+### Requirements
 
 - [Node.js](https://nodejs.org/en)
 - [React](https://reactjs.org/)
@@ -69,10 +69,6 @@ Finally, run the app
 - new line bug in output
 - mobile: infinite width and 2x height
 - base selector behind the input box
-
-## Contributing
-
-You can contribute to this project implementing the features to be implemented and sending a pull request.
 
 ## Author
 
