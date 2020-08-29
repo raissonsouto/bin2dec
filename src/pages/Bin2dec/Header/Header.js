@@ -39,13 +39,6 @@ export default class Header extends Component {
         })
     }
 
-    componentDidMount() {
-        this.setState({
-            input: parseInt(sessionStorage.getItem('inputBase')),
-            output: parseInt(sessionStorage.getItem('outputBase'))
-        })
-    }
-
     componentDidUpdate(prevProps, prevState) {
         if (this.state.input != prevState.input || this.state.output != prevState.output) {
             this.props.setBases(this.state.input, this.state.output)

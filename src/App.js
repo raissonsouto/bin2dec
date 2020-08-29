@@ -8,7 +8,6 @@ import Header from './components/Header/Header'
 import SideBar from './components/SideBar/SideBar'
 //pages
 import Bin2dec from './pages/Bin2dec/Bin2dec'
-import StepByStep from './pages/StepByStep/StepByStep'
 import Bin2bin from './pages/Bin2bin/Bin2bin'
 
 export default class App extends Component {
@@ -52,8 +51,7 @@ export default class App extends Component {
           <div className='Abody'>
             <SideBar active={this.state.sidebar} desactive={this.desactive.bind(this)} />
             <div className='Router'>
-                <Route exact path='/bin2dec' component={Bin2dec}/>
-                <Route exact path='/step-by-step' component={StepByStep}/>
+                <Route path='/' component={Bin2dec}/>
                 <Route exact path='/bin2bin' component={Bin2bin}/>
             </div>
           </div>

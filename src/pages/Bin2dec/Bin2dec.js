@@ -21,7 +21,7 @@ export default class Main extends Component {
         return (
             <div className='Main'>
                 <Header setBases={this.setBases.bind(this)} />
-                <Body input={this.state.input} output={this.state.output} />
+                <Body input={sessionStorage.getItem('inputBase')} output={sessionStorage.getItem('outputBase')}/>
             </div>
         )
     }

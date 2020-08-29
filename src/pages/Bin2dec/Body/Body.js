@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
 import InputField from './InputField'
 import OutputField from './OutputField'
-import validateInput from '../../../components/funcs/validateInput'
 import './Body.css'
 
 export default class Body extends Component {
 
-    state = {
-        input: '',
-        output: '',
-        pageHeight: 250,
-        inputHeight: 0,
-        outputHeight: 0
+    constructor(props) {
+        super(props)
+        this.state= {
+            input: '',
+            output: '',
+            pageHeight: 250,
+            inputHeight: 0,
+            outputHeight: 0
+        }
     }
 
     //height control
@@ -55,6 +57,54 @@ export default class Body extends Component {
 
     //translate
 
+    validInput(input) {
+
+        let domain
+    
+        if(sessionStorage.getItem('inputBase') == 2) {
+            domain = /^[01]+$/
+    
+        } else if(sessionStorage.getItem('inputBase') == 10) {
+            domain = /^[0-9]+$/
+    
+        } else if(sessionStorage.getItem('inputBase') == 16) {
+            domain = /^[0-9A-F]+$/
+    
+        } else if (sessionStorage.getItem('inputBase') == 8) {
+            domain = /^[0-7]+$/
+    
+        }
+    
+        return !domain.test(input)
+    }
+
+    translate(num) {
+        return parseInt(num, sessionStorage.getItem('inputBase')).toString(parseInt(sessionStorage.getItem('outputBase'))).toUpperCase()
+    }
+
+    multipleLinesHandler(input) {
+
+        let output = ''
+
+        if(input != '') {
+
+            input.split('\n').forEach(line => {
+    
+                if (line == '') {
+                    output += '\n'
+        
+                } else if (this.validInput(line)) {
+                    output += 'Ops, maybe you typed something wrong\n'
+        
+                } else {
+                    output += this.translate(line)+'\n'
+                }
+            })
+        }
+    
+        return output
+    }
+
     erase() {
         this.setState({input: '', output: ''})
         sessionStorage.setItem('input', '')
@@ -62,35 +112,12 @@ export default class Body extends Component {
     }
 
     onChangeHandler(input) {
-        let output =this.multipleLinesHandler(input.target.value)
+        let output = this.multipleLinesHandler(input.target.value)
 
         sessionStorage.setItem('input', input.target.value)
         sessionStorage.setItem('output', output)
 
         this.setState({input: input.target.value, output: output})
-    }
-
-    multipleLinesHandler(input) {
-        let output = ''
-        
-        input.split('\n').forEach(line => {
-
-            if (line == '') {
-                output += '\n'
-
-            } else if (validateInput(line)) {
-                output += 'Ops, maybe you typed something wrong\n'
-
-            } else {
-                output += this.translate(line)+'\n'
-            }
-        })
-
-        return output
-    }
-
-    translate(num) {
-        return parseInt(num, parseInt(this.props.input).toString(parseInt(this.props.output)).toUpperCase())
     }
 
     //react
@@ -105,7 +132,6 @@ export default class Body extends Component {
     componentDidUpdate(prevProps) {
         
         if(prevProps.input != this.props.input && prevProps.output != this.props.output) {
-            console.log('c1')
             this.setState({input: this.state.output, output: this.state.input})
 
         } else if (prevProps.output != this.props.output) {

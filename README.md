@@ -23,7 +23,7 @@ These instructions will get you a copy of the project up and running on your loc
 - [Node.js](https://nodejs.org/en)
 - [React](https://reactjs.org/)
 - [React Media](https://github.com/ReactTraining/react-media)
-```$ npm install --save react-media```
+```$ npm install react-media```
 - [React Router](https://reactrouter.com/web/guides/quick-start)
 ```$ npm install react-router-dom```
 
@@ -50,11 +50,11 @@ Finally, run the app
 ### Already Running
 
 - Translate
-- choose base bar effects
+- bases selector
 
 ### Working on
 
-- dinamic textarea
+- dynamic textarea
 - Mobile version
 
 ### Future features
@@ -64,11 +64,8 @@ Finally, run the app
 - bin2bin (In bin2dec, the program translate a number in some base to the same number but in another base. In bin2bin (I didn't find in a better name), the idea is to translate this binary to another binary represetation (like two's complement, excess-128, etc))
 
 # bugs
-- change output base doesn't change the output value
-- output box change color without output value != ''
-- new line bug in output
 - mobile: infinite width and 2x height
-- base selector behind the input box
+- mobile: base selector behind the input box
 
 ## Author
 
