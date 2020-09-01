@@ -29,9 +29,9 @@ export default class InputField extends Component {
                 }
                 </div>
                 <textarea className='textarea'
-                value={this.props.value}
-                onChange={this.props.setValue.bind(this)}
-                ref={this.textarea}
+                    value={this.props.value}
+                    onChange={this.props.setValue.bind(this)}
+                    ref={this.textarea}
                 ></textarea>
                 <img
                     onClick={this.props.erase}

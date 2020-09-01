@@ -64,6 +64,8 @@ Finally, run the app
 - bin2bin (In bin2dec, the program translate a number in some base to the same number but in another base. In bin2bin (I didn't find in a better name), the idea is to translate this binary to another binary represetation (like two's complement, excess-128, etc))
 
 # bugs
+
+- This isn't an actual bug, but is something that I doubt. I don't know if it's better change the input value when the user change the input base or if I keep the typed value
 - mobile: infinite width and 2x height
 - mobile: base selector behind the input box
 

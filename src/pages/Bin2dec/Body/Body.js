@@ -8,8 +8,8 @@ export default class Body extends Component {
     constructor(props) {
         super(props)
         this.state= {
-            input: '',
-            output: '',
+            input: sessionStorage.getItem('input'),
+            output: sessionStorage.getItem('output'),
             pageHeight: 250,
             inputHeight: 0,
             outputHeight: 0
@@ -68,7 +68,7 @@ export default class Body extends Component {
             domain = /^[0-9]+$/
     
         } else if(sessionStorage.getItem('inputBase') == 16) {
-            domain = /^[0-9A-F]+$/
+            domain = /^[0-9,A-F]+$/
     
         } else if (sessionStorage.getItem('inputBase') == 8) {
             domain = /^[0-7]+$/
@@ -111,36 +111,31 @@ export default class Body extends Component {
         sessionStorage.setItem('output', '')
     }
 
-    onChangeHandler(input) {
-        let output = this.multipleLinesHandler(input.target.value)
+    onChangeHandler(inputValue) {
+        let input = inputValue.target.value.toUpperCase()
+        let output = this.multipleLinesHandler(input)
 
-        sessionStorage.setItem('input', input.target.value)
+        sessionStorage.setItem('input', input)
         sessionStorage.setItem('output', output)
 
-        this.setState({input: input.target.value, output: output})
+        this.setState({input: input, output: output})
     }
 
     //react
-
-    componentDidMount() {
-        this.setState({
-            input: sessionStorage.getItem('input'),
-            output: sessionStorage.getItem('output')
-        })
-    }
     
     componentDidUpdate(prevProps) {
         
         if(prevProps.input != this.props.input && prevProps.output != this.props.output) {
             this.setState({input: this.state.output, output: this.state.input})
+            sessionStorage.setItem('input', this.state.output)
+            sessionStorage.setItem('output', this.state.input)
 
         } else if (prevProps.output != this.props.output) {
-            console.log(this.props.output)
 
             let output = this.multipleLinesHandler(this.state.input)
 
             this.setState({output: output})
-            console.log(output)
+            sessionStorage.setItem('output', output)
         }
         this.setPageHeight()
     }
@@ -154,7 +149,11 @@ export default class Body extends Component {
                     getHeight={this.setInput.bind(this)}
                     erase={this.erase.bind(this)}
                 />
-                <OutputField value={this.state.output} getHeight={this.setOutput.bind(this)} />
+                <OutputField
+                    value={this.state.output}
+                    getHeight={this.setOutput.bind(this)}
+                    inputValue={this.state.input}
+                />
             </div>
         )
     }

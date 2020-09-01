@@ -11,7 +11,7 @@ export default class OutputField extends Component {
     
     render() {
         return (
-            <div className="output" style={{ display: this.props.value != '' ? 'block' : 'none'}}>
+            <div className="output" style={{ display: this.props.inputValue != '' ? 'block' : 'none'}}>
                 <div className='OutputField' ref={this.ref} >
                     {this.props.value.split('\n').map(line => {
                         if (line == "") {
